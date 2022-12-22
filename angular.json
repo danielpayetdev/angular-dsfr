@@ -42,6 +42,19 @@
               "projects/angular-dsfr/**/*.html"
             ]
           }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "browserTarget": "angular-dsfr:build",
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "browserTarget": "angular-dsfr:build"
+          }
         }
       }
     }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'hhhhib-angular-dsfr',
+  selector: 'lib-angular-dsfr',
   template: `
     <p>
       angular-dsfr works!
@@ -11,5 +11,4 @@ import { Component } from '@angular/core';
   ]
 })
 export class AngularDsfrComponent {
-  coucou: boolean = true;
 }

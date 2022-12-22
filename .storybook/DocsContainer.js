@@ -16,12 +16,12 @@ export const DocsContainer = ({ children, context }) => {
     const isStorybookUiDark = useDarkMode();
     const { setIsDark } = useIsDark();
 
-    useEffect(
-        ()=> {
-            setIsDark(isStorybookUiDark);
-        },
-        [isStorybookUiDark]
-    );
+    // useEffect(
+    //     ()=> {
+    //         setIsDark(isStorybookUiDark);
+    //     },
+    //     [isStorybookUiDark]
+    // );
 
     const backgroundColor = useColors().decisions.background.default.grey.default;
 

@@ -1,0 +1,136 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [
+        {
+            "name": "AngularDsfrService",
+            "id": "injectable-AngularDsfrService-0c88da47eb6295013cbb20b26d686bcec84e9de3da6c417d2cf5851ab53c148d14ccb7a1116e6b24c57d1926ab97fba9c909777dc27a3aeee7b296d992e725d7",
+            "file": "projects/angular-dsfr/src/lib/angular-dsfr.service.ts",
+            "properties": [],
+            "methods": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class AngularDsfrService {\n\n  constructor() { }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 6
+            },
+            "type": "injectable"
+        }
+    ],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "AngularDsfrComponent",
+            "id": "component-AngularDsfrComponent-5deeb1a55161155bdf780307f89b5de0553d334b9b167100794f42760376735f592685fe77d3a017efc2479bba52f76daba15cd531086e9370b7a4fa04e6e461",
+            "file": "projects/angular-dsfr/src/lib/angular-dsfr.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-angular-dsfr",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<p>\n  angular-dsfr works!\n</p>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'lib-angular-dsfr',\n  template: `\n    <p>\n      angular-dsfr works!\n    </p>\n  `,\n  styles: [\n  ]\n})\nexport class AngularDsfrComponent {\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        }
+    ],
+    "modules": [
+        {
+            "name": "AngularDsfrModule",
+            "id": "module-AngularDsfrModule-8071df3c7fe97676d30a12e30ab72675ffb8c3c091b2cf89ca6e46dacf2cf29e56c36d3a2980b55a9c77c94e455a9da083c566c7eb45f0ae6ff8beb1113f1c9f",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/angular-dsfr/src/lib/angular-dsfr.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { AngularDsfrComponent } from './angular-dsfr.component';\n\n\n\n@NgModule({\n  declarations: [\n    AngularDsfrComponent\n  ],\n  imports: [\n  ],\n  exports: [\n    AngularDsfrComponent\n  ]\n})\nexport class AngularDsfrModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AngularDsfrComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "AngularDsfrComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": [],
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "projects/angular-dsfr/src/lib/angular-dsfr.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AngularDsfrComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/angular-dsfr/src/lib/angular-dsfr.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "AngularDsfrService",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            }
+        ]
+    }
+}
