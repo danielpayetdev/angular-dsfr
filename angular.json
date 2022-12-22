@@ -33,11 +33,23 @@
               "zone.js/testing"
             ]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/angular-dsfr/**/*.ts",
+              "projects/angular-dsfr/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "e91a641b-e2d2-44be-9622-0552d5814fac"
+    "analytics": "e91a641b-e2d2-44be-9622-0552d5814fac",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

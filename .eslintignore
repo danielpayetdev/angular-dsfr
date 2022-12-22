@@ -1,7 +1,4 @@
 node_modules/
 dist/
 CHANGELOG.md
-.yarn_home/
-src/integration/
-src/lib/tools/@mui/
-
+.vscode/
