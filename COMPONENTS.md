@@ -1,43 +1,43 @@
 # Components implementation status
 
--   [x] Accordion
--   [ ] File upload
--   [x] Alert
--   [x] Badge
--   [x] Notice
--   [x] Button
--   [x] Buttons group
--   [ ] France Connect button
--   [ ] Radio button
--   [ ] Radio rich
--   [ ] Checkbox
--   [x] Cards
--   [x] Quote
--   [ ] Media
--   [x] Header
--   [x] Breadcrumb
--   [ ] Consent banner
--   [ ] Favicon (?)
--   [x] Stepper
--   [ ] Toggle switch
--   [ ] Follow
--   [ ] Link
--   [x] SkipLinks
--   [ ] Select
--   [ ] Side menu
--   [ ] Call out
--   [x] Highlight
--   [ ] Modal
--   [x] Main navigation
--   [x] Tabs
--   [ ] Pagination
--   [x] Display
--   [ ] Share
--   [x] Footer
--   [ ] Translate
--   [ ] Summary
--   [ ] Table
--   [ ] Tag
--   [ ] Download
--   [ ] Transcription
--   [ ] Tile
+- [ ] Accordion
+- [ ] File upload
+- [ ] Alert
+- [ ] Badge
+- [ ] Notice
+- [ ] Button
+- [ ] Buttons group
+- [ ] France Connect button
+- [ ] Radio button
+- [ ] Radio rich
+- [ ] Checkbox
+- [ ] Cards
+- [ ] Quote
+- [ ] Media
+- [ ] Header
+- [ ] Breadcrumb
+- [ ] Consent banner
+- [ ] Favicon (?)
+- [ ] Stepper
+- [ ] Toggle switch
+- [ ] Follow
+- [ ] Link
+- [ ] SkipLinks
+- [ ] Select
+- [ ] Side menu
+- [ ] Call out
+- [ ] Highlight
+- [ ] Modal
+- [ ] Main navigation
+- [ ] Tabs
+- [ ] Pagination
+- [ ] Display
+- [ ] Share
+- [ ] Footer
+- [ ] Translate
+- [ ] Summary
+- [ ] Table
+- [ ] Tag
+- [ ] Download
+- [ ] Transcription
+- [ ] Tile
