@@ -47,7 +47,11 @@
           "builder": "@storybook/angular:start-storybook",
           "options": {
             "browserTarget": "angular-dsfr:build",
-            "port": 6006
+            "port": 6006,
+            "styles": [
+              "./node_modules/@gouvfr/dsfr/dist/core/core.css",
+              "./node_modules/@gouvfr/dsfr/dist/utility/icons/icons.css"
+            ]
           }
         },
         "build-storybook": {

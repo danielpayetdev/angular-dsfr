@@ -5,7 +5,7 @@
 - [ ] Alert
 - [ ] Badge
 - [ ] Notice
-- [ ] Button
+- [*] Button
 - [ ] Buttons group
 - [ ] France Connect button
 - [ ] Radio button
