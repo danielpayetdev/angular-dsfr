@@ -1,72 +1,147 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-    "angular-dsfr": {
-      "projectType": "library",
-      "root": "projects/angular-dsfr",
-      "sourceRoot": "projects/angular-dsfr/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/angular-dsfr/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/angular-dsfr/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/angular-dsfr/tsconfig.lib.json"
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "angular-dsfr": {
+            "projectType": "library",
+            "root": "projects/angular-dsfr",
+            "sourceRoot": "projects/angular-dsfr/src",
+            "prefix": "lib",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:ng-packagr",
+                    "options": {
+                        "project": "projects/angular-dsfr/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/angular-dsfr/tsconfig.lib.prod.json"
+                        },
+                        "development": {
+                            "tsConfig": "projects/angular-dsfr/tsconfig.lib.json"
+                        }
+                    },
+                    "defaultConfiguration": "production"
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "tsConfig": "projects/angular-dsfr/tsconfig.spec.json",
+                        "polyfills": ["zone.js", "zone.js/testing"]
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "projects/angular-dsfr/**/*.ts",
+                            "projects/angular-dsfr/**/*.html"
+                        ]
+                    }
+                },
+                "storybook": {
+                    "builder": "@storybook/angular:start-storybook",
+                    "options": {
+                        "browserTarget": "angular-dsfr:build",
+                        "port": 6006,
+                        "styles": [
+                            "./node_modules/@gouvfr/dsfr/dist/core/core.css",
+                            "./node_modules/@gouvfr/dsfr/dist/utility/icons/icons.css"
+                        ]
+                    }
+                },
+                "build-storybook": {
+                    "builder": "@storybook/angular:build-storybook",
+                    "options": {
+                        "browserTarget": "angular-dsfr:build"
+                    }
+                }
             }
-          },
-          "defaultConfiguration": "production"
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/angular-dsfr/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "projects/angular-dsfr/**/*.ts",
-              "projects/angular-dsfr/**/*.html"
-            ]
-          }
-        },
-        "storybook": {
-          "builder": "@storybook/angular:start-storybook",
-          "options": {
-            "browserTarget": "angular-dsfr:build",
-            "port": 6006,
-            "styles": [
-              "./node_modules/@gouvfr/dsfr/dist/core/core.css",
-              "./node_modules/@gouvfr/dsfr/dist/utility/icons/icons.css"
-            ]
-          }
-        },
-        "build-storybook": {
-          "builder": "@storybook/angular:build-storybook",
-          "options": {
-            "browserTarget": "angular-dsfr:build"
-          }
+        "angular-dsfr-demo": {
+            "projectType": "application",
+            "root": "demo",
+            "sourceRoot": "demo/src",
+            "prefix": "app",
+            "targets": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/angular-dsfr-demo",
+                        "index": "demo/src/index.html",
+                        "main": "demo/src/main.ts",
+                        "polyfills": ["zone.js"],
+                        "tsConfig": "demo/tsconfig.app.json",
+                        "inlineStyleLanguage": "scss",
+                        "assets": ["demo/src/favicon.ico", "demo/src/assets"],
+                        "styles": [
+                            "demo/src/styles.scss",
+                            "node_modules/@gouvfr/dsfr/dist/core/core.css",
+                            "node_modules/@gouvfr/dsfr/dist/utility/icons/icons.css"
+                        ],
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "production": {
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "500kb",
+                                    "maximumError": "1mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "2kb",
+                                    "maximumError": "4kb"
+                                }
+                            ],
+                            "outputHashing": "all"
+                        },
+                        "development": {
+                            "buildOptimizer": false,
+                            "optimization": false,
+                            "vendorChunk": true,
+                            "extractLicenses": false,
+                            "sourceMap": true,
+                            "namedChunks": true
+                        }
+                    },
+                    "defaultConfiguration": "production"
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "AngularDsfrDemo:build:production"
+                        },
+                        "development": {
+                            "browserTarget": "AngularDsfrDemo:build:development"
+                        }
+                    },
+                    "defaultConfiguration": "development"
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "AngularDsfrDemo:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "polyfills": ["zone.js", "zone.js/testing"],
+                        "tsConfig": "demo/tsconfig.spec.json",
+                        "inlineStyleLanguage": "scss",
+                        "assets": ["demo/src/favicon.ico", "demo/src/assets"],
+                        "styles": ["demo/src/styles.scss"],
+                        "scripts": []
+                    }
+                }
+            }
         }
-      }
+    },
+    "cli": {
+        "analytics": "46c70722-ea8d-436c-a66f-b6708a2c3417"
     }
-  },
-  "cli": {
-    "analytics": "e91a641b-e2d2-44be-9622-0552d5814fac",
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
-  }
 }

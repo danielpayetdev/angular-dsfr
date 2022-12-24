@@ -9,46 +9,33 @@
     "components": [
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-92787898e89646a8eece4a72087afd706f69f6ca4e75dbc4a5e2cbed06ad3c92b2c7ec22d2105a4983d062b64d40b007440fcea5026752da7c3626a782f165e5",
+            "id": "component-ButtonComponent-0f60f00c1811bd0eaf53848a79c699fb1a4212793a883a8e1efd2a506e1ff523d519cac09df44dc9c53571c1d172c5b3cd1a70cf81b8b3c373d2d96501747667",
             "file": "projects/angular-dsfr/src/lib/button/button.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
-            "encapsulation": [],
+            "encapsulation": ["ViewEncapsulation.None"],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "dsfr-button",
-            "styleUrls": [
-                "./button.component.scss"
-            ],
+            "selector": "button[dsfr-button]",
+            "styleUrls": ["./button.component.scss"],
             "styles": [],
-            "templateUrl": [
-                "./button.component.html"
-            ],
+            "templateUrl": ["./button.component.html"],
             "viewProviders": [],
             "inputsClass": [
                 {
                     "name": "ariaLabel",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 21,
+                    "line": 27,
                     "type": "string",
-                    "decorators": []
-                },
-                {
-                    "name": "disabled",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 20,
-                    "type": "boolean",
                     "decorators": []
                 },
                 {
                     "name": "icon",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
+                    "line": 28,
                     "type": "string",
                     "decorators": []
                 },
@@ -56,25 +43,25 @@
                     "name": "iconDirection",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 23,
+                    "line": 29,
                     "type": "\"left\" | \"right\"",
                     "decorators": []
                 },
                 {
                     "name": "size",
-                    "defaultValue": "'md'",
+                    "defaultValue": "\"md\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
+                    "line": 26,
                     "type": "ButtonSize",
                     "decorators": []
                 },
                 {
                     "name": "type",
-                    "defaultValue": "'primary'",
+                    "defaultValue": "\"primary\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
+                    "line": 25,
                     "type": "ButtonType",
                     "decorators": []
                 }
@@ -82,16 +69,19 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
-                    "name": "classes",
-                    "defaultValue": "{}",
+                    "name": "frBtn",
+                    "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "NgCssClasses",
+                    "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 25,
-                    "modifierKind": [
-                        122
+                    "line": 31,
+                    "decorators": [
+                        {
+                            "name": "HostBinding",
+                            "stringifiedArguments": "'class.fr-btn'"
+                        }
                     ]
                 }
             ],
@@ -102,31 +92,160 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 27,
+                    "line": 55,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
             ],
             "deprecated": false,
             "deprecationMessage": "",
-            "hostBindings": [],
+            "hostBindings": [
+                {
+                    "name": "class.fr-btn",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 31,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "class.fr-btn--icon-left",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 47,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "class.fr-btn--icon-right",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 50,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "class.fr-btn--lg",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 44,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "class.fr-btn--secondary",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 32,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "class.fr-btn--sm",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 41,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "class.fr-btn--tertiary",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 35,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "class.fr-btn--tertiary-no-outline",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 38,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
             "hostListeners": [],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';\n\ntype ButtonType = 'primary' | 'secondary' | 'tertiary' | 'tertiary-no-outline';\ntype ButtonSize = 'sm' | 'md' | 'lg';\ntype NgCssClasses = { [k: string]: boolean };\n\n@Component({\n  selector: 'dsfr-button',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class ButtonComponent implements OnChanges {\n\n  @Input() type: ButtonType = 'primary';\n  @Input() size: ButtonSize = 'md';\n  @Input() disabled = false;\n  @Input() ariaLabel?: string;\n  @Input() icon?: string;\n  @Input() iconDirection?: 'left' | 'right';\n\n  protected classes: NgCssClasses = {};\n\n  ngOnChanges(){\n    console.log(this.iconDirection);\n    this.classes = {\n      'fr-btn--secondary': this.type === 'secondary',\n      'fr-btn--tertiary': this.type === 'tertiary',\n      'fr-btn--tertiary-no-outline': this.type === 'tertiary-no-outline',\n      'fr-btn--sm': this.size === 'sm',\n      'fr-btn--lg': this.size === 'lg',\n      'fr-btn--icon-left': !this.type.startsWith('tertiary') && !!this.icon && this.iconDirection === 'left',\n      'fr-btn--icon-right': !this.type.startsWith('tertiary') && !!this.icon && this.iconDirection === 'right'\n    };\n    if(this.icon){\n      this.classes[this.icon] = true;\n    }\n  }\n}\n",
+            "sourceCode": "import { CommonModule } from \"@angular/common\";\nimport {\n    ChangeDetectionStrategy,\n    Component,\n    HostBinding,\n    Input,\n    OnChanges,\n    ViewEncapsulation\n} from \"@angular/core\";\n\ntype ButtonType = \"primary\" | \"secondary\" | \"tertiary\" | \"tertiary-no-outline\";\ntype ButtonSize = \"sm\" | \"md\" | \"lg\";\n\n@Component({\n    // eslint-disable-next-line @angular-eslint/component-selector\n    selector: \"button[dsfr-button]\",\n    standalone: true,\n    imports: [CommonModule],\n    templateUrl: \"./button.component.html\",\n    styleUrls: [\"./button.component.scss\"],\n    changeDetection: ChangeDetectionStrategy.OnPush,\n    encapsulation: ViewEncapsulation.None\n})\nexport class ButtonComponent implements OnChanges {\n    @Input() type: ButtonType = \"primary\";\n    @Input() size: ButtonSize = \"md\";\n    @Input() ariaLabel?: string;\n    @Input() icon?: string;\n    @Input() iconDirection?: \"left\" | \"right\";\n\n    @HostBinding(\"class.fr-btn\") frBtn = true;\n    @HostBinding(\"class.fr-btn--secondary\") get frBtnSecondary() {\n        return this.type === \"secondary\";\n    }\n    @HostBinding(\"class.fr-btn--tertiary\") get frBtnTertiary() {\n        return this.type === \"tertiary\";\n    }\n    @HostBinding(\"class.fr-btn--tertiary-no-outline\") get frBtnTertiaryNoOutline() {\n        return this.type === \"tertiary-no-outline\";\n    }\n    @HostBinding(\"class.fr-btn--sm\") get frBtnSm() {\n        return this.size === \"sm\";\n    }\n    @HostBinding(\"class.fr-btn--lg\") get frBtnLg() {\n        return this.size === \"lg\";\n    }\n    @HostBinding(\"class.fr-btn--icon-left\") get frBtnIconLeft() {\n        return !this.type?.startsWith(\"tertiary\") && !!this.icon && this.iconDirection === \"left\";\n    }\n    @HostBinding(\"class.fr-btn--icon-right\") get frBtnRight() {\n        return !this.type?.startsWith(\"tertiary\") && !!this.icon && this.iconDirection === \"right\";\n    }\n    //@HostBinding('class') classes = \"\";\n\n    ngOnChanges() {\n        if (this.icon) {\n            // this.classes = this.icon;\n        }\n    }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../.../../../../../node_modules/@gouvfr/dsfr/dist/component/button/button.css\";",
+                    "data": "@use \"../../../../../node_modules/@gouvfr/dsfr/dist/component/button/button\";",
                     "styleUrl": "./button.component.scss"
                 }
             ],
             "stylesData": "",
-            "implements": [
-                "OnChanges"
-            ],
-            "templateData": "<button class=\"fr-btn\" [ngClass]=\"classes\" [disabled]=\"disabled\" [attr.aria-label]=\"ariaLabel\">\n    <ng-content></ng-content>\n</button>"
+            "implements": ["OnChanges"],
+            "accessors": {
+                "frBtnSecondary": {
+                    "name": "frBtnSecondary",
+                    "getSignature": {
+                        "name": "frBtnSecondary",
+                        "type": "",
+                        "returnType": "",
+                        "line": 32
+                    }
+                },
+                "frBtnTertiary": {
+                    "name": "frBtnTertiary",
+                    "getSignature": {
+                        "name": "frBtnTertiary",
+                        "type": "",
+                        "returnType": "",
+                        "line": 35
+                    }
+                },
+                "frBtnTertiaryNoOutline": {
+                    "name": "frBtnTertiaryNoOutline",
+                    "getSignature": {
+                        "name": "frBtnTertiaryNoOutline",
+                        "type": "",
+                        "returnType": "",
+                        "line": 38
+                    }
+                },
+                "frBtnSm": {
+                    "name": "frBtnSm",
+                    "getSignature": {
+                        "name": "frBtnSm",
+                        "type": "",
+                        "returnType": "",
+                        "line": 41
+                    }
+                },
+                "frBtnLg": {
+                    "name": "frBtnLg",
+                    "getSignature": {
+                        "name": "frBtnLg",
+                        "type": "",
+                        "returnType": "",
+                        "line": 44
+                    }
+                },
+                "frBtnIconLeft": {
+                    "name": "frBtnIconLeft",
+                    "getSignature": {
+                        "name": "frBtnIconLeft",
+                        "type": "",
+                        "returnType": "",
+                        "line": 47
+                    }
+                },
+                "frBtnRight": {
+                    "name": "frBtnRight",
+                    "getSignature": {
+                        "name": "frBtnRight",
+                        "type": "",
+                        "returnType": "",
+                        "line": 50
+                    }
+                }
+            },
+            "templateData": "<ng-content></ng-content>\n"
         }
     ],
     "modules": [],
@@ -140,7 +259,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\r\n  title: 'Button',\r\n  component: ButtonComponent,\r\n  argTypes: {\r\n    type: {\r\n      control: 'radio',\r\n      options: ['primary', 'secondary', 'tertiary', 'tertiary-no-outline'],\r\n      defaultValue: 'primary'\r\n    },\r\n    size: {\r\n      control: 'radio',\r\n      options: ['sm', 'md', 'lg'],\r\n      defaultValue: 'md'\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n      defaultValue: false\r\n    }\r\n  }\r\n}"
+                "defaultValue": "{\n    title: \"Button\",\n    component: ButtonComponent\n}"
             },
             {
                 "name": "Primary",
@@ -150,7 +269,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "StoryObj<ButtonComponent>",
-                "defaultValue": "{\r\n  render: args => ({\r\n    template: `<dsfr-button [type]=\"type\" [disabled]=\"disabled\" [size]=\"size\" [iconDirection]=\"iconDirection\" icon='fr-icon-checkbox-circle-line'>Label bouton</dsfr-button>`,\r\n    props: args\r\n  }),\r\n  argTypes: {\r\n    type: {\r\n      control: 'radio',\r\n      options: ['primary', 'secondary', 'tertiary', 'tertiary-no-outline']\r\n    },\r\n    size: {\r\n      control: 'radio',\r\n      options: ['sm', 'md', 'lg']\r\n    },\r\n    disabled: {\r\n      control: 'boolean'\r\n    }\r\n  }\r\n}"
+                "defaultValue": "{\n    render: args => ({\n        template: `<button dsfr-button [type]=\"type\" [disabled]=\"disabled\" [size]=\"size\" [icon]=icon [iconDirection]=\"iconDirection\">Label bouton</button>`,\n        props: args\n    })\n}"
+            },
+            {
+                "name": "WithIcone",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/angular-dsfr/src/lib/button/button.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "StoryObj<ButtonComponent>",
+                "defaultValue": "{\n    render: args => ({\n        template: `<button dsfr-button icon='fr-icon-checkbox-circle-line' [iconDirection]=\"iconDirection\">Label bouton {{iconDirection}}</button>`,\n        props: args\n    })\n}"
             }
         ],
         "functions": [],
@@ -176,17 +305,6 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 186
-            },
-            {
-                "name": "NgCssClasses",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "literal type",
-                "file": "projects/angular-dsfr/src/lib/button/button.component.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 181
             }
         ],
         "enumerations": [],
@@ -200,7 +318,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\r\n  title: 'Button',\r\n  component: ButtonComponent,\r\n  argTypes: {\r\n    type: {\r\n      control: 'radio',\r\n      options: ['primary', 'secondary', 'tertiary', 'tertiary-no-outline'],\r\n      defaultValue: 'primary'\r\n    },\r\n    size: {\r\n      control: 'radio',\r\n      options: ['sm', 'md', 'lg'],\r\n      defaultValue: 'md'\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n      defaultValue: false\r\n    }\r\n  }\r\n}"
+                    "defaultValue": "{\n    title: \"Button\",\n    component: ButtonComponent\n}"
                 },
                 {
                     "name": "Primary",
@@ -210,7 +328,17 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "StoryObj<ButtonComponent>",
-                    "defaultValue": "{\r\n  render: args => ({\r\n    template: `<dsfr-button [type]=\"type\" [disabled]=\"disabled\" [size]=\"size\" [iconDirection]=\"iconDirection\" icon='fr-icon-checkbox-circle-line'>Label bouton</dsfr-button>`,\r\n    props: args\r\n  }),\r\n  argTypes: {\r\n    type: {\r\n      control: 'radio',\r\n      options: ['primary', 'secondary', 'tertiary', 'tertiary-no-outline']\r\n    },\r\n    size: {\r\n      control: 'radio',\r\n      options: ['sm', 'md', 'lg']\r\n    },\r\n    disabled: {\r\n      control: 'boolean'\r\n    }\r\n  }\r\n}"
+                    "defaultValue": "{\n    render: args => ({\n        template: `<button dsfr-button [type]=\"type\" [disabled]=\"disabled\" [size]=\"size\" [icon]=icon [iconDirection]=\"iconDirection\">Label bouton</button>`,\n        props: args\n    })\n}"
+                },
+                {
+                    "name": "WithIcone",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/angular-dsfr/src/lib/button/button.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "StoryObj<ButtonComponent>",
+                    "defaultValue": "{\n    render: args => ({\n        template: `<button dsfr-button icon='fr-icon-checkbox-circle-line' [iconDirection]=\"iconDirection\">Label bouton {{iconDirection}}</button>`,\n        props: args\n    })\n}"
                 }
             ]
         },
@@ -239,17 +367,6 @@
                     "deprecationMessage": "",
                     "description": "",
                     "kind": 186
-                },
-                {
-                    "name": "NgCssClasses",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "literal type",
-                    "file": "projects/angular-dsfr/src/lib/button/button.component.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 181
                 }
             ]
         }
@@ -280,12 +397,22 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/angular-dsfr/src/lib/button/button.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithIcone",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/angular-dsfr/src/lib/button/button.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "ButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/16",
                 "status": "low"
             }
         ]
