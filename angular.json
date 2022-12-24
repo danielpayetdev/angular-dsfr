@@ -113,10 +113,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "AngularDsfrDemo:build:production"
+                            "browserTarget": "angular-dsfr-demo:build:production"
                         },
                         "development": {
-                            "browserTarget": "AngularDsfrDemo:build:development"
+                            "browserTarget": "angular-dsfr-demo:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -124,7 +124,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "AngularDsfrDemo:build"
+                        "browserTarget": "angular-dsfr-demo:build"
                     }
                 },
                 "test": {

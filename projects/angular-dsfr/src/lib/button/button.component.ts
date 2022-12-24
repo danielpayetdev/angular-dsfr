@@ -13,10 +13,10 @@ type ButtonSize = "sm" | "md" | "lg";
 
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector
-    selector: "button[dsfr-button]",
+    selector: "button[dsfrButton]",
     standalone: true,
     imports: [CommonModule],
-    templateUrl: "./button.component.html",
+    template: "<ng-content></ng-content>",
     styleUrls: ["./button.component.scss"],
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None
