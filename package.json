@@ -1,94 +1,91 @@
 {
-  "name": "angular-dsfr",
-  "version": "0.0.0",
-  "description": "French State Design System Angular integration library",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/danielpayetdev/angular-dsfr"
-  },
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve --configuration development",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "lint": "ng lint --fix",
-    "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
-    "storybook": "npm run docs:json && storybook dev -p 6006",
-    "build-storybook": "npm run docs:json && storybook build"
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "ng lint --fix"
+    "name": "angular-dsfr",
+    "version": "0.0.0",
+    "description": "French State Design System Angular integration library",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/danielpayetdev/angular-dsfr"
+    },
+    "scripts": {
+        "ng": "nx",
+        "start": "ng serve --configuration development",
+        "build": "ng build",
+        "watch": "ng build --watch --configuration development",
+        "test": "ng test",
+        "lint": "ng lint --fix",
+        "storybook": "ng run angular-dsfr:storybook",
+        "build-storybook": "ng run angular-dsfr:build-storybook"
+    },
+    "lint-staged": {
+        "*.{ts,tsx,json,md}": [
+            "prettier --write"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged -v"
+        }
+    },
+    "license": "MIT",
+    "keywords": [
+        "dsfr",
+        "design system",
+        "angular",
+        "typescript"
     ],
-    "*.{ts,tsx,json,md}": [
-      "prettier --write"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged -v"
+    "homepage": "https://github.com/danielpayetdev/angular-dsfr",
+    "dependencies": {
+        "@angular/animations": "^15.0.0",
+        "@angular/common": "^15.0.0",
+        "@angular/compiler": "^15.0.0",
+        "@angular/core": "^15.0.0",
+        "@angular/forms": "^15.0.0",
+        "@angular/platform-browser": "^15.0.0",
+        "@angular/platform-browser-dynamic": "^15.0.0",
+        "@angular/router": "^15.0.0",
+        "rxjs": "~7.5.0",
+        "tslib": "^2.3.0",
+        "zone.js": "~0.12.0"
+    },
+    "devDependencies": {
+        "@angular-devkit/build-angular": "^15.0.4",
+        "@angular-eslint/builder": "15.1.0",
+        "@angular-eslint/eslint-plugin": "15.1.0",
+        "@angular-eslint/eslint-plugin-template": "15.1.0",
+        "@angular-eslint/schematics": "15.1.0",
+        "@angular-eslint/template-parser": "15.1.0",
+        "@angular/cli": "~15.0.4",
+        "@angular/compiler-cli": "^15.0.0",
+        "@compodoc/compodoc": "^1.1.19",
+        "@gouvfr/dsfr": "1.8.5",
+        "@storybook/addon-essentials": "^7.0.0-beta.13",
+        "@storybook/addon-interactions": "^7.0.0-beta.13",
+        "@storybook/addon-links": "^7.0.0-beta.13",
+        "@storybook/angular": "^7.0.0-beta.13",
+        "@storybook/blocks": "^7.0.0-beta.13",
+        "@storybook/builder-webpack5": "^7.0.0-beta.13",
+        "@storybook/testing-library": "^0.0.13",
+        "@types/jasmine": "~4.3.0",
+        "@types/prettier": "^2.7.2",
+        "@typescript-eslint/eslint-plugin": "5.44.0",
+        "@typescript-eslint/parser": "5.44.0",
+        "eslint": "^8.28.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-storybook": "^0.6.8",
+        "husky": "^4.3.8",
+        "jasmine-core": "~4.5.0",
+        "karma": "~6.4.0",
+        "karma-chrome-launcher": "~3.1.0",
+        "karma-coverage": "~2.2.0",
+        "karma-jasmine": "~5.1.0",
+        "karma-jasmine-html-reporter": "~2.0.0",
+        "lint-staged": "^11.0.0",
+        "ng-packagr": "^15.0.0",
+        "nx": "15.4.1",
+        "prettier": "^2.8.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "storybook": "^7.0.0-beta.13",
+        "typescript": "~4.8.2"
     }
-  },
-  "license": "MIT",
-  "keywords": [
-    "dsfr",
-    "design system",
-    "angular",
-    "typescript"
-  ],
-  "homepage": "https://github.com/danielpayetdev/angular-dsfr",
-  "dependencies": {
-    "@angular/animations": "^15.0.0",
-    "@angular/common": "^15.0.0",
-    "@angular/compiler": "^15.0.0",
-    "@angular/core": "^15.0.0",
-    "@angular/forms": "^15.0.0",
-    "@angular/platform-browser": "^15.0.0",
-    "@angular/platform-browser-dynamic": "^15.0.0",
-    "@angular/router": "^15.0.0",
-    "rxjs": "~7.5.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.12.0"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "^15.0.4",
-    "@angular-eslint/builder": "15.1.0",
-    "@angular-eslint/eslint-plugin": "15.1.0",
-    "@angular-eslint/eslint-plugin-template": "15.1.0",
-    "@angular-eslint/schematics": "15.1.0",
-    "@angular-eslint/template-parser": "15.1.0",
-    "@angular/cli": "~15.0.4",
-    "@angular/compiler-cli": "^15.0.0",
-    "@compodoc/compodoc": "^1.1.19",
-    "@gouvfr/dsfr": "1.8.5",
-    "@storybook/addon-essentials": "^7.0.0-beta.13",
-    "@storybook/addon-interactions": "^7.0.0-beta.13",
-    "@storybook/addon-links": "^7.0.0-beta.13",
-    "@storybook/angular": "^7.0.0-beta.13",
-    "@storybook/blocks": "^7.0.0-beta.13",
-    "@storybook/builder-webpack5": "^7.0.0-beta.13",
-    "@storybook/testing-library": "^0.0.13",
-    "@types/jasmine": "~4.3.0",
-    "@types/prettier": "^2.7.2",
-    "@typescript-eslint/eslint-plugin": "5.44.0",
-    "@typescript-eslint/parser": "5.44.0",
-    "eslint": "^8.28.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-storybook": "^0.6.8",
-    "husky": "^4.3.8",
-    "jasmine-core": "~4.5.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage": "~2.2.0",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "~2.0.0",
-    "lint-staged": "^11.0.0",
-    "ng-packagr": "^15.0.0",
-    "prettier": "^2.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "storybook": "^7.0.0-beta.13",
-    "typescript": "~4.8.2"
-  }
 }

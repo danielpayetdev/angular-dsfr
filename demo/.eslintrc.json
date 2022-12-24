@@ -1,22 +1,15 @@
 {
-    "root": true,
+    "extends": "../../.eslintrc.json",
+    "ignorePatterns": ["!**/*"],
     "overrides": [
         {
             "files": ["*.ts"],
-            "extends": [
-                "eslint:recommended",
-                "plugin:@typescript-eslint/recommended",
-                "plugin:@angular-eslint/recommended",
-                "plugin:@angular-eslint/template/process-inline-templates",
-                "prettier",
-                "plugin:storybook/recommended"
-            ],
             "rules": {
                 "@angular-eslint/directive-selector": [
                     "error",
                     {
                         "type": "attribute",
-                        "prefix": "lib",
+                        "prefix": "dsfr-demo",
                         "style": "camelCase"
                     }
                 ],
@@ -24,7 +17,7 @@
                     "error",
                     {
                         "type": "element",
-                        "prefix": "lib",
+                        "prefix": "dsfr-demo",
                         "style": "kebab-case"
                     }
                 ]
@@ -32,7 +25,6 @@
         },
         {
             "files": ["*.html"],
-            "extends": ["plugin:@angular-eslint/template/recommended"],
             "rules": {}
         }
     ]
