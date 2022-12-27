@@ -7,6 +7,7 @@ import {
     OnChanges,
     ViewEncapsulation
 } from "@angular/core";
+import { Icon, Icons } from "../icons/icons";
 
 type ButtonType = "primary" | "secondary" | "tertiary" | "tertiary-no-outline";
 export type ButtonSize = "sm" | "md" | "lg";
@@ -28,7 +29,8 @@ export class ButtonComponent implements OnChanges {
     @Input() type: ButtonType = "primary";
     @Input() size: ButtonSize = "md";
     @Input() ariaLabel?: string;
-    @Input() icon?: string;
+    @Input() icon?: Icons;
+    @Input() iconStyle?: "fill" | "line";
     @Input() iconAlign?: "left" | "right";
 
     @HostBinding("class.fr-btn") frBtn = true;
@@ -57,7 +59,7 @@ export class ButtonComponent implements OnChanges {
 
     ngOnChanges() {
         if (this.icon) {
-            this.classes = this.icon;
+            this.classes = Icon.get(this.icon, this.iconStyle);
         }
     }
 }
