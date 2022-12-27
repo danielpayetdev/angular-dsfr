@@ -9,8 +9,11 @@ import {
 } from "@angular/core";
 
 type ButtonType = "primary" | "secondary" | "tertiary" | "tertiary-no-outline";
-type ButtonSize = "sm" | "md" | "lg";
+export type ButtonSize = "sm" | "md" | "lg";
 
+/**
+ * @link https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton
+ */
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector
     selector: "button[dsfrButton]",
@@ -26,8 +29,7 @@ export class ButtonComponent implements OnChanges {
     @Input() size: ButtonSize = "md";
     @Input() ariaLabel?: string;
     @Input() icon?: string;
-    @Input() iconLeft: unknown;
-    @Input() iconRight: unknown;
+    @Input() iconAlign?: "left" | "right";
 
     @HostBinding("class.fr-btn") frBtn = true;
     @HostBinding("class.fr-btn--secondary") get frBtnSecondary() {
@@ -46,12 +48,10 @@ export class ButtonComponent implements OnChanges {
         return this.size === "lg";
     }
     @HostBinding("class.fr-btn--icon-left") get frBtnIconLeft() {
-        return !this.type?.startsWith("tertiary") && !!this.icon && this.coerceValue(this.iconLeft);
+        return !this.type?.startsWith("tertiary") && !!this.icon && this.iconAlign === "left";
     }
     @HostBinding("class.fr-btn--icon-right") get frBtnRight() {
-        return (
-            !this.type?.startsWith("tertiary") && !!this.icon && this.coerceValue(this.iconRight)
-        );
+        return !this.type?.startsWith("tertiary") && !!this.icon && this.iconAlign === "right";
     }
     @HostBinding("class") classes = "";
 
@@ -59,9 +59,5 @@ export class ButtonComponent implements OnChanges {
         if (this.icon) {
             this.classes = this.icon;
         }
-    }
-
-    coerceValue(value: unknown): boolean {
-        return value !== undefined || value === false;
     }
 }

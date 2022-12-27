@@ -1,4 +1,15 @@
-<ul class="fr-btns-group">
+<ul class="fr-btns-group"
+    [ngClass]="{
+    'fr-btns-group--inline-sm': coerceBooleanProperty(inline) && inlineMinSize === 'sm',
+    'fr-btns-group--inline-md': coerceBooleanProperty(inline) && inlineMinSize === 'md',
+    'fr-btns-group--center': coerceBooleanProperty(inline) && align === 'center',
+    'fr-btns-group--right': coerceBooleanProperty(inline) && align === 'right',
+    'fr-btns-group--sm': buttonSize === 'sm',
+    'fr-btns-group--lg': buttonSize === 'lg',
+    'fr-btns-group--icon-left': iconAlign === 'left',
+    'fr-btns-group--icon-right': iconAlign === 'right',
+    'fr-btns-group--equisized': coerceBooleanProperty(equisized)
+    }">
     <li *ngFor="let button of buttons">
         <ng-container [ngTemplateOutlet]="button.templateRef"></ng-container>
     </li>
