@@ -78,7 +78,8 @@
                         "styles": [
                             "demo/src/styles.scss",
                             "node_modules/@gouvfr/dsfr/dist/core/core.min.css",
-                            "node_modules/@gouvfr/dsfr/dist/utility/icons/icons.min.css"
+                            "node_modules/@gouvfr/dsfr/dist/utility/icons/icons.min.css",
+                            "node_modules/@gouvfr/dsfr/dist/scheme/scheme.min.css"
                         ],
                         "scripts": ["node_modules/@gouvfr/dsfr/dist/dsfr.module.min.js"]
                     },

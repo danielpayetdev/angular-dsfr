@@ -1,6 +1,5 @@
-<dsfr-button-group inline iconAlign="right" align="right">
-    <button dsfrButton
-        *dsfrButtonGroupItem icon="todo" iconStyle="fill"> Payer mes impôts </button>
-    <button dsfrButton
-        *dsfrButtonGroupItem type="secondary"> Annuler </button>
+<dsfr-button-group inline align="right">
+    <button dsfrButton *dsfrButtonGroupItem [type]="currentTheme === ThemeOption.LIGHT ? 'primary' : 'secondary'" icon="sun" iconStyle="line" (click)="setTheme(ThemeOption.LIGHT)"></button>
+    <button dsfrButton *dsfrButtonGroupItem [type]="currentTheme === ThemeOption.DARK ? 'primary' : 'secondary'" icon="moon" iconStyle="line" (click)="setTheme(ThemeOption.DARK)"></button>
+    <button dsfrButton *dsfrButtonGroupItem [type]="currentTheme === ThemeOption.SYSTEM ? 'primary' : 'secondary'" icon="settings-5" iconStyle="line" (click)="setTheme(ThemeOption.SYSTEM)"></button>
 </dsfr-button-group>
