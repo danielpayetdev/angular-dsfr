@@ -4,3 +4,4 @@
 
 export * from "./lib/button/button.component";
 export * from "./lib/button-group/button-group.component";
+export * from "./lib/theming/theming.service";
