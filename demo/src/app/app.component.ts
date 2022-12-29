@@ -1,11 +1,11 @@
-import { NgSwitch, NgSwitchCase } from "@angular/common";
 import { Component, inject } from "@angular/core";
 import {
+    AccordionComponent,
     ButtonComponent,
-    ButtonGroupItemDirective,
     ButtonGroupComponent,
-    ThemeService,
-    ThemeOption
+    ButtonGroupItemDirective,
+    ThemeOption,
+    ThemeService
 } from "angular-dsfr";
 
 @Component({
@@ -13,13 +13,7 @@ import {
     templateUrl: "./app.component.html",
     styleUrls: ["./app.component.scss"],
     standalone: true,
-    imports: [
-        ButtonComponent,
-        ButtonGroupComponent,
-        ButtonGroupItemDirective,
-        NgSwitch,
-        NgSwitchCase
-    ]
+    imports: [ButtonComponent, ButtonGroupComponent, ButtonGroupItemDirective, AccordionComponent]
 })
 export class AppComponent {
     protected ThemeOption = ThemeOption;

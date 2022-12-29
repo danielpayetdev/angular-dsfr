@@ -59,6 +59,7 @@ export class ButtonComponent implements OnChanges {
 
     ngOnChanges() {
         if (this.icon) {
+            console.log("hey-");
             this.classes = Icon.get(this.icon, this.iconStyle);
         }
     }

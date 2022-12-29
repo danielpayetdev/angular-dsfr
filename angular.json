@@ -74,7 +74,15 @@
                         "polyfills": ["zone.js"],
                         "tsConfig": "demo/tsconfig.app.json",
                         "inlineStyleLanguage": "scss",
-                        "assets": ["demo/src/favicon.ico", "demo/src/assets"],
+                        "assets": [
+                            "demo/src/favicon.ico",
+                            "demo/src/assets",
+                            {
+                                "glob": "@(add-line|subtract-line).svg",
+                                "input": "node_modules/@gouvfr/dsfr/dist/icons/system",
+                                "output": "icons/system/"
+                            }
+                        ],
                         "styles": [
                             "demo/src/styles.scss",
                             "node_modules/@gouvfr/dsfr/dist/core/core.min.css",

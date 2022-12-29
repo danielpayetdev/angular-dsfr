@@ -1,15 +1,290 @@
 {
     "pipes": [],
     "interfaces": [],
-    "injectables": [],
+    "injectables": [
+        {
+            "name": "ThemeService",
+            "id": "injectable-ThemeService-8680f41da39820f1971727e59266dc896f2a6eff38f5a6a42ad44a34b96c5083e46e39d42506751f2591e7ab0f5d1db60e11b086ce04a51763f6195da472cbb9",
+            "file": "projects/angular-dsfr/src/lib/theming/theming.service.ts",
+            "properties": [
+                {
+                    "name": "document",
+                    "defaultValue": "inject(DOCUMENT)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "modifierKind": [121]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "getTheme",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "ThemeOption",
+                    "typeParameters": [],
+                    "line": 23,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [123]
+                },
+                {
+                    "name": "getThemeFromLocalStorage",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "ThemeOption | undefined",
+                    "typeParameters": [],
+                    "line": 27,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [121]
+                },
+                {
+                    "name": "setTheme",
+                    "args": [
+                        {
+                            "name": "theme",
+                            "type": "ThemeOption",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 19,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [123],
+                    "jsdoctags": [
+                        {
+                            "name": "theme",
+                            "type": "ThemeOption",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { DOCUMENT } from \"@angular/common\";\r\nimport { inject, Injectable } from \"@angular/core\";\r\n\r\nexport enum ThemeOption {\r\n    LIGHT = \"light\",\r\n    DARK = \"dark\",\r\n    SYSTEM = \"system\"\r\n}\r\n\r\nconst DATA_FR_SCHEME = \"data-fr-scheme\";\r\nconst SCHEME_DB = \"scheme\";\r\n\r\n@Injectable({\r\n    providedIn: \"root\"\r\n})\r\nexport class ThemeService {\r\n    private document = inject(DOCUMENT);\r\n\r\n    public setTheme(theme: ThemeOption): void {\r\n        this.document.documentElement.setAttribute(DATA_FR_SCHEME, theme);\r\n    }\r\n\r\n    public getTheme(): ThemeOption {\r\n        return this.getThemeFromLocalStorage() ?? ThemeOption.LIGHT;\r\n    }\r\n\r\n    private getThemeFromLocalStorage(): ThemeOption | undefined {\r\n        const valueFromLocalStorage = localStorage.getItem(SCHEME_DB);\r\n        if (Object.values(ThemeOption).includes(valueFromLocalStorage as any)) {\r\n            return valueFromLocalStorage as ThemeOption;\r\n        }\r\n        return undefined;\r\n    }\r\n}\r\n",
+            "type": "injectable"
+        }
+    ],
     "guards": [],
     "interceptors": [],
-    "classes": [],
-    "directives": [],
+    "classes": [
+        {
+            "name": "Icon",
+            "id": "class-Icon-e1b47ca49072f495986eb26f88560e3a01856a0ff2a660a76d4dcc3d8f064e87bbe440b8daf05334b3688e7fe8a193a8004f39459b81b3be336e85cfc988475b",
+            "file": "projects/angular-dsfr/src/lib/icons/icons.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "export const IconsData = {\r\n    /**\r\n     * Buildings\r\n     */\r\n    ancientGate: \"ancient-gate\",\r\n    ancientPavilion: \"ancient-pavilion\",\r\n    bank: \"bank\",\r\n    building: \"building\",\r\n    community: \"community\",\r\n    government: \"government\",\r\n    home4: \"home-4\",\r\n    hospital: \"hospital\",\r\n    hotel: \"hotel\",\r\n    store: \"store\",\r\n\r\n    /**\r\n     * Business\r\n     */\r\n    archive: \"archive\",\r\n    attachment: \"attachment\",\r\n    award: \"award\",\r\n    barChartBox: \"bar-chart-box\",\r\n    bookmark: \"bookmark\",\r\n    briefcase: \"briefcase\",\r\n    calendar2: \"calendar-2\",\r\n    calendarEvent: \"calendar-event\",\r\n    calendar: \"calendar\",\r\n    cloud: \"cloud\",\r\n    copyright: \"copyright\",\r\n    customerService: \"customer-service\",\r\n    flag: \"flag\",\r\n    global: \"global\",\r\n    lineChart: \"line-chart\",\r\n    links: \"links\",\r\n    mail: \"mail\",\r\n    mailOpen: \"mail-open\",\r\n    medal: \"medal\",\r\n    pieChart2: \"pie-chart-2\",\r\n    pieChartBox: \"pie-chart-box\",\r\n    printer: \"printer\",\r\n    profil: \"profil\",\r\n    projector2: \"projector-2\",\r\n    sendPlane: \"send-plane\",\r\n    slideshow: \"slideshow\",\r\n    window: \"window\",\r\n\r\n    /**\r\n     * Communication\r\n     */\r\n    chat2: \"chat-2\",\r\n    chat3: \"chat-3\",\r\n    chatCheck: \"chat-check\",\r\n    chatDelete: \"chat-delete\",\r\n    chatPoll: \"chat-poll\",\r\n    discuss: \"discuss\",\r\n    feedback: \"feedback\",\r\n    message2: \"message-2\",\r\n    questionAnswer: \"question-answer\",\r\n    questionnaire: \"questionnaire\",\r\n    videoChat: \"video-chat\",\r\n\r\n    /**\r\n     * Design\r\n     */\r\n    ballPen: \"ball-pen\",\r\n    brush3: \"brush-3\",\r\n    brush: \"brush\",\r\n    contrast: \"contrast\",\r\n    crop: \"crop\",\r\n    dragMove2: \"drag-move-2\",\r\n    drop: \"drop\",\r\n    editBox: \"edit-box\",\r\n    edit: \"edit\",\r\n    inkBottle: \"ink-bottle\",\r\n    layoutGrid: \"layout-grid\",\r\n    markPen: \"mark-pen\",\r\n    paintBrush: \"paint-brush\",\r\n    paint: \"paint\",\r\n    palette: \"palette\",\r\n    pantone: \"pantone\",\r\n    pencil: \"pencil\",\r\n    pencilRuler: \"pencil-ruler\",\r\n    penNib: \"pen-nib\",\r\n    sip: \"sip\",\r\n    table: \"table\",\r\n\r\n    /**\r\n     * Development\r\n     */\r\n    bug: \"bug\",\r\n    codeBox: \"code-box\",\r\n    codeSSlash: \"code-s-slash\",\r\n    cursor: \"cursor\",\r\n    gitBranch: \"git-branch\",\r\n    gitCommit: \"git-commit\",\r\n    gitMerge: \"git-merge\",\r\n    gitPullRequest: \"git-pull-request\",\r\n    gitRepositoryCommits: \"git-repository-commits\",\r\n    gitRepository: \"git-repository\",\r\n    gitRepositoryPrivate: \"git-repository-private\",\r\n    terminalBox: \"terminal-box\",\r\n    terminal: \"terminal\",\r\n    terminalWindow: \"terminal-window\",\r\n\r\n    /**\r\n     * Device\r\n     */\r\n    server: \"server\",\r\n    smartphone: \"smartphone\",\r\n    tablet: \"tablet\",\r\n    tv: \"tv\",\r\n    wifi: \"wifi\",\r\n    bluetooth: \"bluetooth\",\r\n    computer: \"computer\",\r\n    dashboard3: \"dashboard-3\",\r\n    database: \"database\",\r\n    device: \"device\",\r\n    hardDrive2: \"hard-drive-2\",\r\n    mac: \"mac\",\r\n    phone: \"phone\",\r\n    qrCode: \"qr-code\",\r\n    rss: \"rss\",\r\n    save3: \"save-3\",\r\n    save: \"save\",\r\n\r\n    /**\r\n     * Document\r\n     */\r\n\r\n    article: \"article\",\r\n    book2: \"book-2\",\r\n    booklet: \"booklet\",\r\n    clipboard: \"clipboard\",\r\n    draft: \"draft\",\r\n    fileAdd: \"file-add\",\r\n    fileDownload: \"file-download\",\r\n    file: \"file\",\r\n    filePdf: \"file-pdf\",\r\n    fileText: \"file-text\",\r\n    folder2: \"folder-2\",\r\n    newspaper: \"newspaper\",\r\n    survey: \"survey\",\r\n    todo: \"todo\",\r\n\r\n    /**\r\n     * Editor\r\n     */\r\n    codeView: \"code-view\",\r\n    fontSize: \"font-size\",\r\n    bold: \"fr--bold\",\r\n    highlight: \"fr--highlight\",\r\n    quote: \"fr--quote\",\r\n    h1: \"h-1\",\r\n    h2: \"h-2\",\r\n    h3: \"h-3\",\r\n    h4: \"h-4\",\r\n    h5: \"h-5\",\r\n    h6: \"h-6\",\r\n    hashtag: \"hashtag\",\r\n    italic: \"italic\",\r\n    link: \"link\",\r\n    linkUnlink: \"link-unlink\",\r\n    listOrdered: \"list-ordered\",\r\n    listUnordered: \"list-unordered\",\r\n    questionMark: \"question-mark\",\r\n    separator: \"separator\",\r\n    space: \"space\",\r\n    subscript: \"subscript\",\r\n    superscript: \"superscript\",\r\n    table2: \"table-2\",\r\n    translate2: \"translate-2\",\r\n\r\n    /**\r\n     * Finance\r\n     */\r\n    bankCard: \"bank-card\",\r\n    coin: \"coin\",\r\n    gift: \"gift\",\r\n    moneyEuroBox: \"money-euro-box\",\r\n    moneyEuroCircle: \"money-euro-circle\",\r\n    securePayment: \"secure-payment\",\r\n    shoppingBag: \"shopping-bag\",\r\n    shoppingCart2: \"shopping-cart-2\",\r\n    trophy: \"trophy\",\r\n\r\n    /**\r\n     * Health\r\n     */\r\n    capsule: \"capsule\",\r\n    dislike: \"dislike\",\r\n    dossier: \"dossier\",\r\n    firstAidKit: \"first-aid-kit\",\r\n    handSanitizer: \"hand-sanitizer\",\r\n    healthBook: \"health-book\",\r\n    heart: \"heart\",\r\n    heartPulse: \"heart-pulse\",\r\n    lungs: \"lungs\",\r\n    medicineBottle: \"medicine-bottle\",\r\n    mentalHealth: \"mental-health\",\r\n    microscope: \"microscope\",\r\n    psychotherapy: \"psychotherapy\",\r\n    pulse: \"pulse\",\r\n    stethoscope: \"stethoscope\",\r\n    surgicalMask: \"surgical-mask\",\r\n    syringe: \"syringe\",\r\n    testTube: \"test-tube\",\r\n    thermometer: \"thermometer\",\r\n    virus: \"virus\",\r\n\r\n    /**\r\n     * Logo\r\n     */\r\n    chrome: \"chrome\",\r\n    edge: \"edge\",\r\n    facebookCircle: \"facebook-circle\",\r\n    firefox: \"firefox\",\r\n    Dailymotion: \"fr--dailymotion\",\r\n    Tiktok: \"fr--tiktok\",\r\n    github: \"github\",\r\n    google: \"google\",\r\n    ie: \"ie\",\r\n    instagram: \"instagram\",\r\n    linkedinBox: \"linkedin-box\",\r\n    mastodon: \"mastodon\",\r\n    npmjs: \"npmjs\",\r\n    remixicon: \"remixicon\",\r\n    safari: \"safari\",\r\n    slack: \"slack\",\r\n    snapchat: \"snapchat\",\r\n    telegram: \"telegram\",\r\n    twitch: \"twitch\",\r\n    twitter: \"twitter\",\r\n    vimeo: \"vimeo\",\r\n    vuejs: \"vuejs\",\r\n    youtube: \"youtube\",\r\n\r\n    /**\r\n     * Map\r\n     */\r\n    anchor: \"anchor\",\r\n    bike: \"bike\",\r\n    bus: \"bus\",\r\n    caravan: \"caravan\",\r\n    car: \"car\",\r\n    chargingPile2: \"charging-pile-2\",\r\n    compass3: \"compass-3\",\r\n    cup: \"cup\",\r\n    earth: \"earth\",\r\n    france: \"france\",\r\n    gasStation: \"gas-station\",\r\n    goblet: \"goblet\",\r\n    mapPin2: \"map-pin-2\",\r\n    mapPinUser: \"map-pin-user\",\r\n    motorbike: \"motorbike\",\r\n    passport: \"passport\",\r\n    restaurant: \"restaurant\",\r\n    roadMap: \"road-map\",\r\n    sailboat: \"sailboat\",\r\n    ship2: \"ship-2\",\r\n    signalTower: \"signal-tower\",\r\n    suitcase2: \"suitcase-2\",\r\n    taxi: \"taxi\",\r\n    train: \"train\",\r\n\r\n    /**\r\n     * media\r\n     */\r\n    alignLeft: \"align-left\",\r\n    camera: \"camera\",\r\n    clapperboard: \"clapperboard\",\r\n    equalizer: \"equalizer\",\r\n    film: \"film\",\r\n    fullscreen: \"fullscreen\",\r\n    gallery: \"gallery\",\r\n    headphone: \"headphone\",\r\n    imageAdd: \"image-add\",\r\n    imageEdit: \"image-edit\",\r\n    image: \"image\",\r\n    live: \"live\",\r\n    mic: \"mic\",\r\n    music2: \"music-2\",\r\n    notification3: \"notification-3\",\r\n    pauseCircle: \"pause-circle\",\r\n    playCircle: \"play-circle\",\r\n    stopCircle: \"stop-circle\",\r\n    volumeDown: \"volume-down\",\r\n    volumeMute: \"volume-mute\",\r\n    volumeUp: \"volume-up\",\r\n\r\n    /**\r\n     * Other\r\n     */\r\n    leaf: \"leaf\",\r\n    lightbulb: \"lightbulb\",\r\n    plant: \"plant\",\r\n    recycle: \"recycle\",\r\n    scales3: \"scales-3\",\r\n    seedling: \"seedling\",\r\n    umbrella: \"umbrella\",\r\n\r\n    /**\r\n     * System\r\n     */\r\n    addCircle: \"add-circle\",\r\n    add: \"add\",\r\n    alarmWarning: \"alarm-warning\",\r\n    alert: \"alert\",\r\n    arrowDown: \"arrow-down\",\r\n    arrowDownS: \"arrow-down-s\",\r\n    arrowGoBack: \"arrow-go-back\",\r\n    arrowGoForward: \"arrow-go-forward\",\r\n    arrowLeft: \"arrow-left\",\r\n    arrowLeftS: \"arrow-left-s\",\r\n    arrowRight: \"arrow-right\",\r\n    arrowRightS: \"arrow-right-s\",\r\n    arrowRightUp: \"arrow-right-up\",\r\n    arrowUp: \"arrow-up\",\r\n    arrowUpS: \"arrow-up-s\",\r\n    checkboxCircle: \"checkbox-circle\",\r\n    checkbox: \"checkbox\",\r\n    check: \"check\",\r\n    closeCircle: \"close-circle\",\r\n    close: \"close\",\r\n    deleteBin: \"delete-bin\",\r\n    download: \"download\",\r\n    errorWarning: \"error-warning\",\r\n    externalLink: \"external-link\",\r\n    eye: \"eye\",\r\n    eyeOff: \"eye-off\",\r\n    filter: \"filter\",\r\n    arrowLeftSfirst: \"fr--arrow-left-s-first\",\r\n    frArrowLeftS: \"fr--arrow-left-s\",\r\n    arrowRightSLast: \"fr--arrow-right-s-last\",\r\n    frArrowRightS: \"fr--arrow-right-s\",\r\n    capslock: \"fr--capslock\",\r\n    error: \"fr--error\",\r\n    info: \"fr--info\",\r\n    success: \"fr--success\",\r\n    theme: \"fr--theme\",\r\n    warning: \"fr--warning\",\r\n    information: \"information\",\r\n    lock: \"lock\",\r\n    lockUnlock: \"lock-unlock\",\r\n    logoutBoxR: \"logout-box-r\",\r\n    menu2: \"menu-2\",\r\n    more: \"more\",\r\n    notificationBadge: \"notification-badge\",\r\n    question: \"question\",\r\n    refresh: \"refresh\",\r\n    search: \"search\",\r\n    settings5: \"settings-5\",\r\n    shield: \"shield\",\r\n    star: \"star\",\r\n    starS: \"star-s\",\r\n    subtract: \"subtract\",\r\n    thumbDown: \"thumb-down\",\r\n    thumbUp: \"thumb-up\",\r\n    time: \"time\",\r\n    timer: \"timer\",\r\n    upload2: \"upload-2\",\r\n    upload: \"upload\",\r\n    zoomIn: \"zoom-in\",\r\n    zoomOut: \"zoom-out\",\r\n\r\n    /**\r\n     * User\r\n     */\r\n    accountCircle: \"account-circle\",\r\n    accountPinCircle: \"account-pin-circle\",\r\n    admin: \"admin\",\r\n    group: \"group\",\r\n    parent: \"parent\",\r\n    team: \"team\",\r\n    userAdd: \"user-add\",\r\n    user: \"user\",\r\n    userHeart: \"user-heart\",\r\n    userSearch: \"user-search\",\r\n    userSetting: \"user-setting\",\r\n    userStar: \"user-star\",\r\n\r\n    /**\r\n     * Weather\r\n     */\r\n    cloudy2: \"cloudy-2\",\r\n    flashlight: \"flashlight\",\r\n    moon: \"moon\",\r\n    sun: \"sun\"\r\n} as const;\r\n\r\nconst onlyWithFillStyle = [IconsData.coin, IconsData.theme];\r\nconst onlyWithLineStyle = [\r\n    IconsData.pulse,\r\n    IconsData.check,\r\n    IconsData.add,\r\n    IconsData.close,\r\n    IconsData.subtract,\r\n    IconsData.fullscreen,\r\n    IconsData.arrowLeftSfirst,\r\n    IconsData.arrowRightSLast,\r\n    IconsData.frArrowLeftS,\r\n    IconsData.frArrowRightS\r\n];\r\nconst withLineDoubleStyle = [IconsData.frArrowLeftS, IconsData.frArrowRightS];\r\nconst withoutstyle = [\r\n    IconsData.alignLeft,\r\n    IconsData.fullscreen,\r\n    IconsData.codeView,\r\n    IconsData.fontSize,\r\n    IconsData.bold,\r\n    IconsData.highlight,\r\n    IconsData.h1,\r\n    IconsData.h2,\r\n    IconsData.h3,\r\n    IconsData.h4,\r\n    IconsData.h5,\r\n    IconsData.h6,\r\n    IconsData.hashtag,\r\n    IconsData.italic,\r\n    IconsData.link,\r\n    IconsData.linkUnlink,\r\n    IconsData.listOrdered,\r\n    IconsData.listUnordered,\r\n    IconsData.questionMark,\r\n    IconsData.separator,\r\n    IconsData.space,\r\n    IconsData.subscript,\r\n    IconsData.superscript,\r\n    IconsData.table2,\r\n    IconsData.translate2\r\n];\r\n\r\ntype IconsKey = keyof typeof IconsData;\r\nexport type Icons = typeof IconsData[IconsKey];\r\nexport type IconStyle = \"fill\" | \"line\";\r\n\r\nexport class Icon {\r\n    public static get(iconName: Icons, style: IconStyle = \"fill\") {\r\n        if (withoutstyle.includes(iconName as any)) {\r\n            return `fr-icon-${iconName}`;\r\n        } else {\r\n            const iconStyle = Icon.getStyle(iconName, style);\r\n            return `fr-icon-${iconName}-${iconStyle}`;\r\n        }\r\n    }\r\n\r\n    private static getStyle(iconName: Icons, style: IconStyle): IconStyle | \"line-double\" {\r\n        if (onlyWithFillStyle.includes(iconName as any) && style === \"line\") {\r\n            return (style = \"fill\");\r\n        } else if (onlyWithLineStyle.includes(iconName as any) && style === \"fill\") {\r\n            return (style = \"line\");\r\n        }\r\n        if (style === \"line\" && withLineDoubleStyle.includes(iconName as any)) {\r\n            return \"line-double\";\r\n        } else {\r\n            return style;\r\n        }\r\n    }\r\n}\r\n",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "get",
+                    "args": [
+                        {
+                            "name": "iconName",
+                            "type": "Icons",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "style",
+                            "type": "IconStyle",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "\"fill\""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 437,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [124],
+                    "jsdoctags": [
+                        {
+                            "name": "iconName",
+                            "type": "Icons",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "style",
+                            "type": "IconStyle",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "\"fill\"",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getStyle",
+                    "args": [
+                        {
+                            "name": "iconName",
+                            "type": "Icons",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "style",
+                            "type": "IconStyle",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "IconStyle | \"line-double\"",
+                    "typeParameters": [],
+                    "line": 446,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [121, 124],
+                    "jsdoctags": [
+                        {
+                            "name": "iconName",
+                            "type": "Icons",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "style",
+                            "type": "IconStyle",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        }
+    ],
+    "directives": [
+        {
+            "name": "ButtonGroupItemDirective",
+            "id": "directive-ButtonGroupItemDirective-d5cf46ac383cc6a6182d2db8a9fac8001d7926e7d5048c8a0fb46c5ef47316521dc8a628a09a3153e59e7e2056b59826b00c1f0ee6c5d4285a1a0b67fcfe7702",
+            "file": "projects/angular-dsfr/src/lib/button-group/button-group.component.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { JsonPipe, NgClass, NgFor, NgTemplateOutlet } from \"@angular/common\";\r\nimport {\r\n    ChangeDetectionStrategy,\r\n    Component,\r\n    ContentChildren,\r\n    Directive,\r\n    inject,\r\n    Input,\r\n    QueryList,\r\n    TemplateRef,\r\n    ViewEncapsulation\r\n} from \"@angular/core\";\r\nimport { ButtonComponent, ButtonSize } from \"../button/button.component\";\r\nimport { coerceBooleanProperty } from \"../utils/coercion\";\r\n\r\nexport type BreakPoint = \"sm\" | \"md\" | \"lg\";\r\n\r\n@Directive({\r\n    selector: \"[dsfrButtonGroupItem]\",\r\n    standalone: true\r\n})\r\nexport class ButtonGroupItemDirective {\r\n    public templateRef: TemplateRef<ButtonComponent> = inject(TemplateRef);\r\n}\r\n\r\n/**\r\n * @link https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/groupe-de-boutons\r\n */\r\n@Component({\r\n    selector: \"dsfr-button-group\",\r\n    templateUrl: \"./button-group.component.html\",\r\n    standalone: true,\r\n    imports: [NgFor, NgTemplateOutlet, NgClass, JsonPipe],\r\n    changeDetection: ChangeDetectionStrategy.OnPush,\r\n    encapsulation: ViewEncapsulation.None\r\n})\r\nexport class ButtonGroupComponent {\r\n    coerceBooleanProperty = coerceBooleanProperty;\r\n    @ContentChildren(ButtonGroupItemDirective) buttons!: QueryList<ButtonGroupItemDirective>;\r\n    @Input() inline: unknown;\r\n    @Input() inlineMinSize: BreakPoint = \"md\";\r\n    @Input() align: \"left\" | \"center\" | \"right\" = \"left\";\r\n    @Input() buttonSize: ButtonSize = \"md\";\r\n    @Input() iconAlign?: \"left\" | \"right\";\r\n    @Input() equisized: unknown;\r\n}\r\n",
+            "selector": "[dsfrButtonGroupItem]",
+            "providers": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [
+                {
+                    "name": "templateRef",
+                    "defaultValue": "inject(TemplateRef)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TemplateRef<ButtonComponent>",
+                    "optional": false,
+                    "description": "",
+                    "line": 23,
+                    "modifierKind": [123]
+                }
+            ],
+            "methodsClass": []
+        }
+    ],
     "components": [
         {
+            "name": "AccordionComponent",
+            "id": "component-AccordionComponent-6375d9ea9dc82a2878d832d66becbc0d89c081d90f69b4dabb930e8154643debcaa86b285c5d04b6c42ddc8586f11fd15f518fd95bc6f3ceff8d9fb29572222c",
+            "file": "projects/angular-dsfr/src/lib/accordion/accordion.component.ts",
+            "encapsulation": ["ViewEncapsulation.None"],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "dsfr-accordion",
+            "styleUrls": ["./accordion.component.scss"],
+            "styles": [],
+            "templateUrl": ["./accordion.component.html"],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "id",
+                    "defaultValue": "`dsfr-accordion-${++nextUniqueId}`",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "modifierKind": [122]
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, ViewEncapsulation } from '@angular/core';\n\nlet nextUniqueId = 0;\n\n@Component({\n  selector: 'dsfr-accordion',\n  standalone: true,\n  imports: [],\n  templateUrl: './accordion.component.html',\n  styleUrls: ['./accordion.component.scss'],\n  encapsulation: ViewEncapsulation.None\n})\nexport class AccordionComponent {\n  @Input() title!: string;\n\n  protected id = `dsfr-accordion-${++nextUniqueId}`;\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@use \"../../../../../node_modules/@gouvfr/dsfr/dist/component/accordion/accordion.min\";",
+                    "styleUrl": "./accordion.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<section class=\"fr-accordion\">\n    <h3 class=\"fr-accordion__title\">\n        <button class=\"fr-accordion__btn\" aria-expanded=\"false\" [attr.aria-controls]=\"id\">{{ title }}</button>\n    </h3>\n    <div class=\"fr-collapse\" [id]=\"id\">\n        <ng-content></ng-content>\n    </div>\n</section>"
+        },
+        {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-0f60f00c1811bd0eaf53848a79c699fb1a4212793a883a8e1efd2a506e1ff523d519cac09df44dc9c53571c1d172c5b3cd1a70cf81b8b3c373d2d96501747667",
+            "id": "component-ButtonComponent-31ee406e82a3ebc5e647dd33a07485367cd87c06d33bc9feb32b7a459f57272e8392e773225ceb0572e345a945d83b80f038777f66d07080ccc5be882d870726",
             "file": "projects/angular-dsfr/src/lib/button/button.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": ["ViewEncapsulation.None"],
@@ -17,17 +292,18 @@
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "button[dsfr-button]",
+            "selector": "button[dsfrButton]",
             "styleUrls": ["./button.component.scss"],
             "styles": [],
-            "templateUrl": ["./button.component.html"],
+            "template": "<ng-content></ng-content>",
+            "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
                 {
                     "name": "ariaLabel",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 27,
+                    "line": 31,
                     "type": "string",
                     "decorators": []
                 },
@@ -35,16 +311,24 @@
                     "name": "icon",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 28,
-                    "type": "string",
+                    "line": 32,
+                    "type": "Icons",
                     "decorators": []
                 },
                 {
-                    "name": "iconDirection",
+                    "name": "iconAlign",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 29,
+                    "line": 34,
                     "type": "\"left\" | \"right\"",
+                    "decorators": []
+                },
+                {
+                    "name": "iconStyle",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "\"fill\" | \"line\"",
                     "decorators": []
                 },
                 {
@@ -52,7 +336,7 @@
                     "defaultValue": "\"md\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 26,
+                    "line": 30,
                     "type": "ButtonSize",
                     "decorators": []
                 },
@@ -61,13 +345,29 @@
                     "defaultValue": "\"primary\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 25,
+                    "line": 29,
                     "type": "ButtonType",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
             "propertiesClass": [
+                {
+                    "name": "classes",
+                    "defaultValue": "\"\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 58,
+                    "decorators": [
+                        {
+                            "name": "HostBinding",
+                            "stringifiedArguments": "'class'"
+                        }
+                    ]
+                },
                 {
                     "name": "frBtn",
                     "defaultValue": "true",
@@ -76,7 +376,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 31,
+                    "line": 36,
                     "decorators": [
                         {
                             "name": "HostBinding",
@@ -92,7 +392,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 55,
+                    "line": 60,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -101,11 +401,20 @@
             "deprecationMessage": "",
             "hostBindings": [
                 {
+                    "name": "class",
+                    "defaultValue": "\"\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 58,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
                     "name": "class.fr-btn",
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 31,
+                    "line": 36,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -113,7 +422,7 @@
                     "name": "class.fr-btn--icon-left",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 47,
+                    "line": 52,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -121,7 +430,7 @@
                     "name": "class.fr-btn--icon-right",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 50,
+                    "line": 55,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -129,7 +438,7 @@
                     "name": "class.fr-btn--lg",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 44,
+                    "line": 49,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -137,7 +446,7 @@
                     "name": "class.fr-btn--secondary",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 32,
+                    "line": 37,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -145,7 +454,7 @@
                     "name": "class.fr-btn--sm",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 41,
+                    "line": 46,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -153,7 +462,7 @@
                     "name": "class.fr-btn--tertiary",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 35,
+                    "line": 40,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -161,20 +470,20 @@
                     "name": "class.fr-btn--tertiary-no-outline",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 38,
+                    "line": 43,
                     "type": "boolean",
                     "decorators": []
                 }
             ],
             "hostListeners": [],
             "description": "",
-            "rawdescription": "\n",
+            "rawdescription": "\n\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from \"@angular/common\";\nimport {\n    ChangeDetectionStrategy,\n    Component,\n    HostBinding,\n    Input,\n    OnChanges,\n    ViewEncapsulation\n} from \"@angular/core\";\n\ntype ButtonType = \"primary\" | \"secondary\" | \"tertiary\" | \"tertiary-no-outline\";\ntype ButtonSize = \"sm\" | \"md\" | \"lg\";\n\n@Component({\n    // eslint-disable-next-line @angular-eslint/component-selector\n    selector: \"button[dsfr-button]\",\n    standalone: true,\n    imports: [CommonModule],\n    templateUrl: \"./button.component.html\",\n    styleUrls: [\"./button.component.scss\"],\n    changeDetection: ChangeDetectionStrategy.OnPush,\n    encapsulation: ViewEncapsulation.None\n})\nexport class ButtonComponent implements OnChanges {\n    @Input() type: ButtonType = \"primary\";\n    @Input() size: ButtonSize = \"md\";\n    @Input() ariaLabel?: string;\n    @Input() icon?: string;\n    @Input() iconDirection?: \"left\" | \"right\";\n\n    @HostBinding(\"class.fr-btn\") frBtn = true;\n    @HostBinding(\"class.fr-btn--secondary\") get frBtnSecondary() {\n        return this.type === \"secondary\";\n    }\n    @HostBinding(\"class.fr-btn--tertiary\") get frBtnTertiary() {\n        return this.type === \"tertiary\";\n    }\n    @HostBinding(\"class.fr-btn--tertiary-no-outline\") get frBtnTertiaryNoOutline() {\n        return this.type === \"tertiary-no-outline\";\n    }\n    @HostBinding(\"class.fr-btn--sm\") get frBtnSm() {\n        return this.size === \"sm\";\n    }\n    @HostBinding(\"class.fr-btn--lg\") get frBtnLg() {\n        return this.size === \"lg\";\n    }\n    @HostBinding(\"class.fr-btn--icon-left\") get frBtnIconLeft() {\n        return !this.type?.startsWith(\"tertiary\") && !!this.icon && this.iconDirection === \"left\";\n    }\n    @HostBinding(\"class.fr-btn--icon-right\") get frBtnRight() {\n        return !this.type?.startsWith(\"tertiary\") && !!this.icon && this.iconDirection === \"right\";\n    }\n    //@HostBinding('class') classes = \"\";\n\n    ngOnChanges() {\n        if (this.icon) {\n            // this.classes = this.icon;\n        }\n    }\n}\n",
+            "sourceCode": "import { CommonModule } from \"@angular/common\";\r\nimport {\r\n    ChangeDetectionStrategy,\r\n    Component,\r\n    HostBinding,\r\n    Input,\r\n    OnChanges,\r\n    ViewEncapsulation\r\n} from \"@angular/core\";\r\nimport { Icon, Icons } from \"../icons/icons\";\r\n\r\ntype ButtonType = \"primary\" | \"secondary\" | \"tertiary\" | \"tertiary-no-outline\";\r\nexport type ButtonSize = \"sm\" | \"md\" | \"lg\";\r\n\r\n/**\r\n * @link https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton\r\n */\r\n@Component({\r\n    // eslint-disable-next-line @angular-eslint/component-selector\r\n    selector: \"button[dsfrButton]\",\r\n    standalone: true,\r\n    imports: [CommonModule],\r\n    template: \"<ng-content></ng-content>\",\r\n    styleUrls: [\"./button.component.scss\"],\r\n    changeDetection: ChangeDetectionStrategy.OnPush,\r\n    encapsulation: ViewEncapsulation.None\r\n})\r\nexport class ButtonComponent implements OnChanges {\r\n    @Input() type: ButtonType = \"primary\";\r\n    @Input() size: ButtonSize = \"md\";\r\n    @Input() ariaLabel?: string;\r\n    @Input() icon?: Icons;\r\n    @Input() iconStyle?: \"fill\" | \"line\";\r\n    @Input() iconAlign?: \"left\" | \"right\";\r\n\r\n    @HostBinding(\"class.fr-btn\") frBtn = true;\r\n    @HostBinding(\"class.fr-btn--secondary\") get frBtnSecondary() {\r\n        return this.type === \"secondary\";\r\n    }\r\n    @HostBinding(\"class.fr-btn--tertiary\") get frBtnTertiary() {\r\n        return this.type === \"tertiary\";\r\n    }\r\n    @HostBinding(\"class.fr-btn--tertiary-no-outline\") get frBtnTertiaryNoOutline() {\r\n        return this.type === \"tertiary-no-outline\";\r\n    }\r\n    @HostBinding(\"class.fr-btn--sm\") get frBtnSm() {\r\n        return this.size === \"sm\";\r\n    }\r\n    @HostBinding(\"class.fr-btn--lg\") get frBtnLg() {\r\n        return this.size === \"lg\";\r\n    }\r\n    @HostBinding(\"class.fr-btn--icon-left\") get frBtnIconLeft() {\r\n        return !this.type?.startsWith(\"tertiary\") && !!this.icon && this.iconAlign === \"left\";\r\n    }\r\n    @HostBinding(\"class.fr-btn--icon-right\") get frBtnRight() {\r\n        return !this.type?.startsWith(\"tertiary\") && !!this.icon && this.iconAlign === \"right\";\r\n    }\r\n    @HostBinding(\"class\") classes = \"\";\r\n\r\n    ngOnChanges() {\r\n        if (this.icon) {\r\n            console.log(\"hey-\")\r\n            this.classes = Icon.get(this.icon, this.iconStyle);\r\n        }\r\n    }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"../../../../../node_modules/@gouvfr/dsfr/dist/component/button/button\";",
+                    "data": "@use \"../../../../../node_modules/@gouvfr/dsfr/dist/component/button/button.min\";",
                     "styleUrl": "./button.component.scss"
                 }
             ],
@@ -187,7 +496,7 @@
                         "name": "frBtnSecondary",
                         "type": "",
                         "returnType": "",
-                        "line": 32
+                        "line": 37
                     }
                 },
                 "frBtnTertiary": {
@@ -196,7 +505,7 @@
                         "name": "frBtnTertiary",
                         "type": "",
                         "returnType": "",
-                        "line": 35
+                        "line": 40
                     }
                 },
                 "frBtnTertiaryNoOutline": {
@@ -205,7 +514,7 @@
                         "name": "frBtnTertiaryNoOutline",
                         "type": "",
                         "returnType": "",
-                        "line": 38
+                        "line": 43
                     }
                 },
                 "frBtnSm": {
@@ -214,7 +523,7 @@
                         "name": "frBtnSm",
                         "type": "",
                         "returnType": "",
-                        "line": 41
+                        "line": 46
                     }
                 },
                 "frBtnLg": {
@@ -223,7 +532,7 @@
                         "name": "frBtnLg",
                         "type": "",
                         "returnType": "",
-                        "line": 44
+                        "line": 49
                     }
                 },
                 "frBtnIconLeft": {
@@ -232,7 +541,7 @@
                         "name": "frBtnIconLeft",
                         "type": "",
                         "returnType": "",
-                        "line": 47
+                        "line": 52
                     }
                 },
                 "frBtnRight": {
@@ -241,16 +550,155 @@
                         "name": "frBtnRight",
                         "type": "",
                         "returnType": "",
-                        "line": 50
+                        "line": 55
                     }
                 }
-            },
-            "templateData": "<ng-content></ng-content>\n"
+            }
+        },
+        {
+            "name": "ButtonGroupComponent",
+            "id": "component-ButtonGroupComponent-d5cf46ac383cc6a6182d2db8a9fac8001d7926e7d5048c8a0fb46c5ef47316521dc8a628a09a3153e59e7e2056b59826b00c1f0ee6c5d4285a1a0b67fcfe7702",
+            "file": "projects/angular-dsfr/src/lib/button-group/button-group.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": ["ViewEncapsulation.None"],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "dsfr-button-group",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": ["./button-group.component.html"],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "align",
+                    "defaultValue": "\"left\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 42,
+                    "type": "\"left\" | \"center\" | \"right\"",
+                    "decorators": []
+                },
+                {
+                    "name": "buttonSize",
+                    "defaultValue": "\"md\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 43,
+                    "type": "ButtonSize",
+                    "decorators": []
+                },
+                {
+                    "name": "equisized",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 45,
+                    "type": "",
+                    "decorators": []
+                },
+                {
+                    "name": "iconAlign",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 44,
+                    "type": "\"left\" | \"right\"",
+                    "decorators": []
+                },
+                {
+                    "name": "inline",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 40,
+                    "type": "",
+                    "decorators": []
+                },
+                {
+                    "name": "inlineMinSize",
+                    "defaultValue": "\"md\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 41,
+                    "type": "BreakPoint",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "buttons",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "QueryList<ButtonGroupItemDirective>",
+                    "optional": false,
+                    "description": "",
+                    "line": 39,
+                    "decorators": [
+                        {
+                            "name": "ContentChildren",
+                            "stringifiedArguments": "ButtonGroupItemDirective"
+                        }
+                    ]
+                },
+                {
+                    "name": "coerceBooleanProperty",
+                    "defaultValue": "coerceBooleanProperty",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 38
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n\n",
+            "type": "component",
+            "sourceCode": "import { JsonPipe, NgClass, NgFor, NgTemplateOutlet } from \"@angular/common\";\r\nimport {\r\n    ChangeDetectionStrategy,\r\n    Component,\r\n    ContentChildren,\r\n    Directive,\r\n    inject,\r\n    Input,\r\n    QueryList,\r\n    TemplateRef,\r\n    ViewEncapsulation\r\n} from \"@angular/core\";\r\nimport { ButtonComponent, ButtonSize } from \"../button/button.component\";\r\nimport { coerceBooleanProperty } from \"../utils/coercion\";\r\n\r\nexport type BreakPoint = \"sm\" | \"md\" | \"lg\";\r\n\r\n@Directive({\r\n    selector: \"[dsfrButtonGroupItem]\",\r\n    standalone: true\r\n})\r\nexport class ButtonGroupItemDirective {\r\n    public templateRef: TemplateRef<ButtonComponent> = inject(TemplateRef);\r\n}\r\n\r\n/**\r\n * @link https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/groupe-de-boutons\r\n */\r\n@Component({\r\n    selector: \"dsfr-button-group\",\r\n    templateUrl: \"./button-group.component.html\",\r\n    standalone: true,\r\n    imports: [NgFor, NgTemplateOutlet, NgClass, JsonPipe],\r\n    changeDetection: ChangeDetectionStrategy.OnPush,\r\n    encapsulation: ViewEncapsulation.None\r\n})\r\nexport class ButtonGroupComponent {\r\n    coerceBooleanProperty = coerceBooleanProperty;\r\n    @ContentChildren(ButtonGroupItemDirective) buttons!: QueryList<ButtonGroupItemDirective>;\r\n    @Input() inline: unknown;\r\n    @Input() inlineMinSize: BreakPoint = \"md\";\r\n    @Input() align: \"left\" | \"center\" | \"right\" = \"left\";\r\n    @Input() buttonSize: ButtonSize = \"md\";\r\n    @Input() iconAlign?: \"left\" | \"right\";\r\n    @Input() equisized: unknown;\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<ul class=\"fr-btns-group\"\r\n    [ngClass]=\"{\r\n    'fr-btns-group--inline-sm': coerceBooleanProperty(inline) && inlineMinSize === 'sm',\r\n    'fr-btns-group--inline-md': coerceBooleanProperty(inline) && inlineMinSize === 'md',\r\n    'fr-btns-group--center': coerceBooleanProperty(inline) && align === 'center',\r\n    'fr-btns-group--right': coerceBooleanProperty(inline) && align === 'right',\r\n    'fr-btns-group--sm': buttonSize === 'sm',\r\n    'fr-btns-group--lg': buttonSize === 'lg',\r\n    'fr-btns-group--icon-left': iconAlign === 'left',\r\n    'fr-btns-group--icon-right': iconAlign === 'right',\r\n    'fr-btns-group--equisized': coerceBooleanProperty(equisized)\r\n    }\">\r\n    <li *ngFor=\"let button of buttons\">\r\n        <ng-container [ngTemplateOutlet]=\"button.templateRef\"></ng-container>\r\n    </li>\r\n</ul>"
         }
     ],
     "modules": [],
     "miscellaneous": {
         "variables": [
+            {
+                "name": "DATA_FR_SCHEME",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/angular-dsfr/src/lib/theming/theming.service.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "\"data-fr-scheme\""
+            },
+            {
+                "name": "IconsData",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "{\r\n    /**\r\n     * Buildings\r\n     */\r\n    ancientGate: \"ancient-gate\",\r\n    ancientPavilion: \"ancient-pavilion\",\r\n    bank: \"bank\",\r\n    building: \"building\",\r\n    community: \"community\",\r\n    government: \"government\",\r\n    home4: \"home-4\",\r\n    hospital: \"hospital\",\r\n    hotel: \"hotel\",\r\n    store: \"store\",\r\n\r\n    /**\r\n     * Business\r\n     */\r\n    archive: \"archive\",\r\n    attachment: \"attachment\",\r\n    award: \"award\",\r\n    barChartBox: \"bar-chart-box\",\r\n    bookmark: \"bookmark\",\r\n    briefcase: \"briefcase\",\r\n    calendar2: \"calendar-2\",\r\n    calendarEvent: \"calendar-event\",\r\n    calendar: \"calendar\",\r\n    cloud: \"cloud\",\r\n    copyright: \"copyright\",\r\n    customerService: \"customer-service\",\r\n    flag: \"flag\",\r\n    global: \"global\",\r\n    lineChart: \"line-chart\",\r\n    links: \"links\",\r\n    mail: \"mail\",\r\n    mailOpen: \"mail-open\",\r\n    medal: \"medal\",\r\n    pieChart2: \"pie-chart-2\",\r\n    pieChartBox: \"pie-chart-box\",\r\n    printer: \"printer\",\r\n    profil: \"profil\",\r\n    projector2: \"projector-2\",\r\n    sendPlane: \"send-plane\",\r\n    slideshow: \"slideshow\",\r\n    window: \"window\",\r\n\r\n    /**\r\n     * Communication\r\n     */\r\n    chat2: \"chat-2\",\r\n    chat3: \"chat-3\",\r\n    chatCheck: \"chat-check\",\r\n    chatDelete: \"chat-delete\",\r\n    chatPoll: \"chat-poll\",\r\n    discuss: \"discuss\",\r\n    feedback: \"feedback\",\r\n    message2: \"message-2\",\r\n    questionAnswer: \"question-answer\",\r\n    questionnaire: \"questionnaire\",\r\n    videoChat: \"video-chat\",\r\n\r\n    /**\r\n     * Design\r\n     */\r\n    ballPen: \"ball-pen\",\r\n    brush3: \"brush-3\",\r\n    brush: \"brush\",\r\n    contrast: \"contrast\",\r\n    crop: \"crop\",\r\n    dragMove2: \"drag-move-2\",\r\n    drop: \"drop\",\r\n    editBox: \"edit-box\",\r\n    edit: \"edit\",\r\n    inkBottle: \"ink-bottle\",\r\n    layoutGrid: \"layout-grid\",\r\n    markPen: \"mark-pen\",\r\n    paintBrush: \"paint-brush\",\r\n    paint: \"paint\",\r\n    palette: \"palette\",\r\n    pantone: \"pantone\",\r\n    pencil: \"pencil\",\r\n    pencilRuler: \"pencil-ruler\",\r\n    penNib: \"pen-nib\",\r\n    sip: \"sip\",\r\n    table: \"table\",\r\n\r\n    /**\r\n     * Development\r\n     */\r\n    bug: \"bug\",\r\n    codeBox: \"code-box\",\r\n    codeSSlash: \"code-s-slash\",\r\n    cursor: \"cursor\",\r\n    gitBranch: \"git-branch\",\r\n    gitCommit: \"git-commit\",\r\n    gitMerge: \"git-merge\",\r\n    gitPullRequest: \"git-pull-request\",\r\n    gitRepositoryCommits: \"git-repository-commits\",\r\n    gitRepository: \"git-repository\",\r\n    gitRepositoryPrivate: \"git-repository-private\",\r\n    terminalBox: \"terminal-box\",\r\n    terminal: \"terminal\",\r\n    terminalWindow: \"terminal-window\",\r\n\r\n    /**\r\n     * Device\r\n     */\r\n    server: \"server\",\r\n    smartphone: \"smartphone\",\r\n    tablet: \"tablet\",\r\n    tv: \"tv\",\r\n    wifi: \"wifi\",\r\n    bluetooth: \"bluetooth\",\r\n    computer: \"computer\",\r\n    dashboard3: \"dashboard-3\",\r\n    database: \"database\",\r\n    device: \"device\",\r\n    hardDrive2: \"hard-drive-2\",\r\n    mac: \"mac\",\r\n    phone: \"phone\",\r\n    qrCode: \"qr-code\",\r\n    rss: \"rss\",\r\n    save3: \"save-3\",\r\n    save: \"save\",\r\n\r\n    /**\r\n     * Document\r\n     */\r\n\r\n    article: \"article\",\r\n    book2: \"book-2\",\r\n    booklet: \"booklet\",\r\n    clipboard: \"clipboard\",\r\n    draft: \"draft\",\r\n    fileAdd: \"file-add\",\r\n    fileDownload: \"file-download\",\r\n    file: \"file\",\r\n    filePdf: \"file-pdf\",\r\n    fileText: \"file-text\",\r\n    folder2: \"folder-2\",\r\n    newspaper: \"newspaper\",\r\n    survey: \"survey\",\r\n    todo: \"todo\",\r\n\r\n    /**\r\n     * Editor\r\n     */\r\n    codeView: \"code-view\",\r\n    fontSize: \"font-size\",\r\n    bold: \"fr--bold\",\r\n    highlight: \"fr--highlight\",\r\n    quote: \"fr--quote\",\r\n    h1: \"h-1\",\r\n    h2: \"h-2\",\r\n    h3: \"h-3\",\r\n    h4: \"h-4\",\r\n    h5: \"h-5\",\r\n    h6: \"h-6\",\r\n    hashtag: \"hashtag\",\r\n    italic: \"italic\",\r\n    link: \"link\",\r\n    linkUnlink: \"link-unlink\",\r\n    listOrdered: \"list-ordered\",\r\n    listUnordered: \"list-unordered\",\r\n    questionMark: \"question-mark\",\r\n    separator: \"separator\",\r\n    space: \"space\",\r\n    subscript: \"subscript\",\r\n    superscript: \"superscript\",\r\n    table2: \"table-2\",\r\n    translate2: \"translate-2\",\r\n\r\n    /**\r\n     * Finance\r\n     */\r\n    bankCard: \"bank-card\",\r\n    coin: \"coin\",\r\n    gift: \"gift\",\r\n    moneyEuroBox: \"money-euro-box\",\r\n    moneyEuroCircle: \"money-euro-circle\",\r\n    securePayment: \"secure-payment\",\r\n    shoppingBag: \"shopping-bag\",\r\n    shoppingCart2: \"shopping-cart-2\",\r\n    trophy: \"trophy\",\r\n\r\n    /**\r\n     * Health\r\n     */\r\n    capsule: \"capsule\",\r\n    dislike: \"dislike\",\r\n    dossier: \"dossier\",\r\n    firstAidKit: \"first-aid-kit\",\r\n    handSanitizer: \"hand-sanitizer\",\r\n    healthBook: \"health-book\",\r\n    heart: \"heart\",\r\n    heartPulse: \"heart-pulse\",\r\n    lungs: \"lungs\",\r\n    medicineBottle: \"medicine-bottle\",\r\n    mentalHealth: \"mental-health\",\r\n    microscope: \"microscope\",\r\n    psychotherapy: \"psychotherapy\",\r\n    pulse: \"pulse\",\r\n    stethoscope: \"stethoscope\",\r\n    surgicalMask: \"surgical-mask\",\r\n    syringe: \"syringe\",\r\n    testTube: \"test-tube\",\r\n    thermometer: \"thermometer\",\r\n    virus: \"virus\",\r\n\r\n    /**\r\n     * Logo\r\n     */\r\n    chrome: \"chrome\",\r\n    edge: \"edge\",\r\n    facebookCircle: \"facebook-circle\",\r\n    firefox: \"firefox\",\r\n    Dailymotion: \"fr--dailymotion\",\r\n    Tiktok: \"fr--tiktok\",\r\n    github: \"github\",\r\n    google: \"google\",\r\n    ie: \"ie\",\r\n    instagram: \"instagram\",\r\n    linkedinBox: \"linkedin-box\",\r\n    mastodon: \"mastodon\",\r\n    npmjs: \"npmjs\",\r\n    remixicon: \"remixicon\",\r\n    safari: \"safari\",\r\n    slack: \"slack\",\r\n    snapchat: \"snapchat\",\r\n    telegram: \"telegram\",\r\n    twitch: \"twitch\",\r\n    twitter: \"twitter\",\r\n    vimeo: \"vimeo\",\r\n    vuejs: \"vuejs\",\r\n    youtube: \"youtube\",\r\n\r\n    /**\r\n     * Map\r\n     */\r\n    anchor: \"anchor\",\r\n    bike: \"bike\",\r\n    bus: \"bus\",\r\n    caravan: \"caravan\",\r\n    car: \"car\",\r\n    chargingPile2: \"charging-pile-2\",\r\n    compass3: \"compass-3\",\r\n    cup: \"cup\",\r\n    earth: \"earth\",\r\n    france: \"france\",\r\n    gasStation: \"gas-station\",\r\n    goblet: \"goblet\",\r\n    mapPin2: \"map-pin-2\",\r\n    mapPinUser: \"map-pin-user\",\r\n    motorbike: \"motorbike\",\r\n    passport: \"passport\",\r\n    restaurant: \"restaurant\",\r\n    roadMap: \"road-map\",\r\n    sailboat: \"sailboat\",\r\n    ship2: \"ship-2\",\r\n    signalTower: \"signal-tower\",\r\n    suitcase2: \"suitcase-2\",\r\n    taxi: \"taxi\",\r\n    train: \"train\",\r\n\r\n    /**\r\n     * media\r\n     */\r\n    alignLeft: \"align-left\",\r\n    camera: \"camera\",\r\n    clapperboard: \"clapperboard\",\r\n    equalizer: \"equalizer\",\r\n    film: \"film\",\r\n    fullscreen: \"fullscreen\",\r\n    gallery: \"gallery\",\r\n    headphone: \"headphone\",\r\n    imageAdd: \"image-add\",\r\n    imageEdit: \"image-edit\",\r\n    image: \"image\",\r\n    live: \"live\",\r\n    mic: \"mic\",\r\n    music2: \"music-2\",\r\n    notification3: \"notification-3\",\r\n    pauseCircle: \"pause-circle\",\r\n    playCircle: \"play-circle\",\r\n    stopCircle: \"stop-circle\",\r\n    volumeDown: \"volume-down\",\r\n    volumeMute: \"volume-mute\",\r\n    volumeUp: \"volume-up\",\r\n\r\n    /**\r\n     * Other\r\n     */\r\n    leaf: \"leaf\",\r\n    lightbulb: \"lightbulb\",\r\n    plant: \"plant\",\r\n    recycle: \"recycle\",\r\n    scales3: \"scales-3\",\r\n    seedling: \"seedling\",\r\n    umbrella: \"umbrella\",\r\n\r\n    /**\r\n     * System\r\n     */\r\n    addCircle: \"add-circle\",\r\n    add: \"add\",\r\n    alarmWarning: \"alarm-warning\",\r\n    alert: \"alert\",\r\n    arrowDown: \"arrow-down\",\r\n    arrowDownS: \"arrow-down-s\",\r\n    arrowGoBack: \"arrow-go-back\",\r\n    arrowGoForward: \"arrow-go-forward\",\r\n    arrowLeft: \"arrow-left\",\r\n    arrowLeftS: \"arrow-left-s\",\r\n    arrowRight: \"arrow-right\",\r\n    arrowRightS: \"arrow-right-s\",\r\n    arrowRightUp: \"arrow-right-up\",\r\n    arrowUp: \"arrow-up\",\r\n    arrowUpS: \"arrow-up-s\",\r\n    checkboxCircle: \"checkbox-circle\",\r\n    checkbox: \"checkbox\",\r\n    check: \"check\",\r\n    closeCircle: \"close-circle\",\r\n    close: \"close\",\r\n    deleteBin: \"delete-bin\",\r\n    download: \"download\",\r\n    errorWarning: \"error-warning\",\r\n    externalLink: \"external-link\",\r\n    eye: \"eye\",\r\n    eyeOff: \"eye-off\",\r\n    filter: \"filter\",\r\n    arrowLeftSfirst: \"fr--arrow-left-s-first\",\r\n    frArrowLeftS: \"fr--arrow-left-s\",\r\n    arrowRightSLast: \"fr--arrow-right-s-last\",\r\n    frArrowRightS: \"fr--arrow-right-s\",\r\n    capslock: \"fr--capslock\",\r\n    error: \"fr--error\",\r\n    info: \"fr--info\",\r\n    success: \"fr--success\",\r\n    theme: \"fr--theme\",\r\n    warning: \"fr--warning\",\r\n    information: \"information\",\r\n    lock: \"lock\",\r\n    lockUnlock: \"lock-unlock\",\r\n    logoutBoxR: \"logout-box-r\",\r\n    menu2: \"menu-2\",\r\n    more: \"more\",\r\n    notificationBadge: \"notification-badge\",\r\n    question: \"question\",\r\n    refresh: \"refresh\",\r\n    search: \"search\",\r\n    settings5: \"settings-5\",\r\n    shield: \"shield\",\r\n    star: \"star\",\r\n    starS: \"star-s\",\r\n    subtract: \"subtract\",\r\n    thumbDown: \"thumb-down\",\r\n    thumbUp: \"thumb-up\",\r\n    time: \"time\",\r\n    timer: \"timer\",\r\n    upload2: \"upload-2\",\r\n    upload: \"upload\",\r\n    zoomIn: \"zoom-in\",\r\n    zoomOut: \"zoom-out\",\r\n\r\n    /**\r\n     * User\r\n     */\r\n    accountCircle: \"account-circle\",\r\n    accountPinCircle: \"account-pin-circle\",\r\n    admin: \"admin\",\r\n    group: \"group\",\r\n    parent: \"parent\",\r\n    team: \"team\",\r\n    userAdd: \"user-add\",\r\n    user: \"user\",\r\n    userHeart: \"user-heart\",\r\n    userSearch: \"user-search\",\r\n    userSetting: \"user-setting\",\r\n    userStar: \"user-star\",\r\n\r\n    /**\r\n     * Weather\r\n     */\r\n    cloudy2: \"cloudy-2\",\r\n    flashlight: \"flashlight\",\r\n    moon: \"moon\",\r\n    sun: \"sun\"\r\n} as const"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/angular-dsfr/src/lib/accordion/accordion.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AccordionComponent>",
+                "defaultValue": "{\r\n    title: \"Accordion\",\r\n    component: AccordionComponent,\r\n}"
+            },
             {
                 "name": "meta",
                 "ctype": "miscellaneous",
@@ -259,31 +707,130 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n    title: \"Button\",\n    component: ButtonComponent\n}"
+                "defaultValue": "{\r\n    title: \"Button\",\r\n    component: ButtonComponent,\r\n    argTypes: { icon: { control: 'select', options: Object.values(IconsData) } },\r\n    args: {\r\n        icon: IconsData.addCircle\r\n    }\r\n}"
             },
             {
-                "name": "Primary",
+                "name": "nextUniqueId",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/angular-dsfr/src/lib/accordion/accordion.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "number",
+                "defaultValue": "0"
+            },
+            {
+                "name": "onlyWithFillStyle",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[IconsData.coin, IconsData.theme]"
+            },
+            {
+                "name": "onlyWithLineStyle",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\r\n    IconsData.pulse,\r\n    IconsData.check,\r\n    IconsData.add,\r\n    IconsData.close,\r\n    IconsData.subtract,\r\n    IconsData.fullscreen,\r\n    IconsData.arrowLeftSfirst,\r\n    IconsData.arrowRightSLast,\r\n    IconsData.frArrowLeftS,\r\n    IconsData.frArrowRightS\r\n]"
+            },
+            {
+                "name": "SCHEME_DB",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/angular-dsfr/src/lib/theming/theming.service.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "\"scheme\""
+            },
+            {
+                "name": "Simple",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/angular-dsfr/src/lib/accordion/accordion.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "StoryObj<AccordionComponent>",
+                "defaultValue": "{\r\n    render: args => ({\r\n        template: `\r\n        <dsfr-accordion title=\"Mes informations\">\r\n            Contenu accordion 1\r\n        </dsfr-accordion>\r\n        <dsfr-accordion title=\"Encore plus d'information\">\r\n            Contenu accordion 2\r\n        </dsfr-accordion>\r\n        `,\r\n        props: args,\r\n    }\r\n    )\r\n}"
+            },
+            {
+                "name": "Variant",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/angular-dsfr/src/lib/button/button.component.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "StoryObj<ButtonComponent>",
-                "defaultValue": "{\n    render: args => ({\n        template: `<button dsfr-button [type]=\"type\" [disabled]=\"disabled\" [size]=\"size\" [icon]=icon [iconDirection]=\"iconDirection\">Label bouton</button>`,\n        props: args\n    })\n}"
+                "defaultValue": "{\r\n    render: args => ({\r\n        template: `\r\n        <div style=\"display:grid; grid-gap: 10px; grid-column: 1;\">\r\n          <button dsfrButton [type]=\"type\" [size]=\"size\">Label bouton</button>\r\n          <button dsfrButton [type]=\"type\" [size]=\"size\" [icon]='icon' [iconStyle]=\"iconStyle\" [iconAlign]=\"iconAlign\">Label bouton</button>\r\n          <button dsfrButton [type]=\"type\" [size]=\"size\" [icon]='icon' [iconStyle]=\"iconStyle\"></button>\r\n        <div>\r\n        `,\r\n        props: args,\r\n    }\r\n    )\r\n}"
             },
             {
-                "name": "WithIcone",
+                "name": "withLineDoubleStyle",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/angular-dsfr/src/lib/button/button.component.stories.ts",
+                "file": "projects/angular-dsfr/src/lib/icons/icons.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "StoryObj<ButtonComponent>",
-                "defaultValue": "{\n    render: args => ({\n        template: `<button dsfr-button icon='fr-icon-checkbox-circle-line' [iconDirection]=\"iconDirection\">Label bouton {{iconDirection}}</button>`,\n        props: args\n    })\n}"
+                "type": "[]",
+                "defaultValue": "[IconsData.frArrowLeftS, IconsData.frArrowRightS]"
+            },
+            {
+                "name": "withoutstyle",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\r\n    IconsData.alignLeft,\r\n    IconsData.fullscreen,\r\n    IconsData.codeView,\r\n    IconsData.fontSize,\r\n    IconsData.bold,\r\n    IconsData.highlight,\r\n    IconsData.h1,\r\n    IconsData.h2,\r\n    IconsData.h3,\r\n    IconsData.h4,\r\n    IconsData.h5,\r\n    IconsData.h6,\r\n    IconsData.hashtag,\r\n    IconsData.italic,\r\n    IconsData.link,\r\n    IconsData.linkUnlink,\r\n    IconsData.listOrdered,\r\n    IconsData.listUnordered,\r\n    IconsData.questionMark,\r\n    IconsData.separator,\r\n    IconsData.space,\r\n    IconsData.subscript,\r\n    IconsData.superscript,\r\n    IconsData.table2,\r\n    IconsData.translate2\r\n]"
             }
         ],
-        "functions": [],
+        "functions": [
+            {
+                "name": "coerceBooleanProperty",
+                "file": "projects/angular-dsfr/src/lib/utils/coercion.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "value",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "returnType": "boolean",
+                "jsdoctags": [
+                    {
+                        "name": "value",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        ],
         "typealiases": [
+            {
+                "name": "BreakPoint",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"sm\" | \"md\" | \"lg\"",
+                "file": "projects/angular-dsfr/src/lib/button-group/button-group.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 186
+            },
             {
                 "name": "ButtonSize",
                 "ctype": "miscellaneous",
@@ -305,10 +852,169 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 186
+            },
+            {
+                "name": "Icons",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "",
+                "file": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 193
+            },
+            {
+                "name": "IconsKey",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "",
+                "file": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 192
+            },
+            {
+                "name": "IconStyle",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"fill\" | \"line\"",
+                "file": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 186
             }
         ],
-        "enumerations": [],
+        "enumerations": [
+            {
+                "name": "ThemeOption",
+                "childs": [
+                    {
+                        "name": "LIGHT",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "light"
+                    },
+                    {
+                        "name": "DARK",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "dark"
+                    },
+                    {
+                        "name": "SYSTEM",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "system"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "projects/angular-dsfr/src/lib/theming/theming.service.ts"
+            }
+        ],
         "groupedVariables": {
+            "projects/angular-dsfr/src/lib/theming/theming.service.ts": [
+                {
+                    "name": "DATA_FR_SCHEME",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/angular-dsfr/src/lib/theming/theming.service.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "\"data-fr-scheme\""
+                },
+                {
+                    "name": "SCHEME_DB",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/angular-dsfr/src/lib/theming/theming.service.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "\"scheme\""
+                }
+            ],
+            "projects/angular-dsfr/src/lib/icons/icons.ts": [
+                {
+                    "name": "IconsData",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "{\r\n    /**\r\n     * Buildings\r\n     */\r\n    ancientGate: \"ancient-gate\",\r\n    ancientPavilion: \"ancient-pavilion\",\r\n    bank: \"bank\",\r\n    building: \"building\",\r\n    community: \"community\",\r\n    government: \"government\",\r\n    home4: \"home-4\",\r\n    hospital: \"hospital\",\r\n    hotel: \"hotel\",\r\n    store: \"store\",\r\n\r\n    /**\r\n     * Business\r\n     */\r\n    archive: \"archive\",\r\n    attachment: \"attachment\",\r\n    award: \"award\",\r\n    barChartBox: \"bar-chart-box\",\r\n    bookmark: \"bookmark\",\r\n    briefcase: \"briefcase\",\r\n    calendar2: \"calendar-2\",\r\n    calendarEvent: \"calendar-event\",\r\n    calendar: \"calendar\",\r\n    cloud: \"cloud\",\r\n    copyright: \"copyright\",\r\n    customerService: \"customer-service\",\r\n    flag: \"flag\",\r\n    global: \"global\",\r\n    lineChart: \"line-chart\",\r\n    links: \"links\",\r\n    mail: \"mail\",\r\n    mailOpen: \"mail-open\",\r\n    medal: \"medal\",\r\n    pieChart2: \"pie-chart-2\",\r\n    pieChartBox: \"pie-chart-box\",\r\n    printer: \"printer\",\r\n    profil: \"profil\",\r\n    projector2: \"projector-2\",\r\n    sendPlane: \"send-plane\",\r\n    slideshow: \"slideshow\",\r\n    window: \"window\",\r\n\r\n    /**\r\n     * Communication\r\n     */\r\n    chat2: \"chat-2\",\r\n    chat3: \"chat-3\",\r\n    chatCheck: \"chat-check\",\r\n    chatDelete: \"chat-delete\",\r\n    chatPoll: \"chat-poll\",\r\n    discuss: \"discuss\",\r\n    feedback: \"feedback\",\r\n    message2: \"message-2\",\r\n    questionAnswer: \"question-answer\",\r\n    questionnaire: \"questionnaire\",\r\n    videoChat: \"video-chat\",\r\n\r\n    /**\r\n     * Design\r\n     */\r\n    ballPen: \"ball-pen\",\r\n    brush3: \"brush-3\",\r\n    brush: \"brush\",\r\n    contrast: \"contrast\",\r\n    crop: \"crop\",\r\n    dragMove2: \"drag-move-2\",\r\n    drop: \"drop\",\r\n    editBox: \"edit-box\",\r\n    edit: \"edit\",\r\n    inkBottle: \"ink-bottle\",\r\n    layoutGrid: \"layout-grid\",\r\n    markPen: \"mark-pen\",\r\n    paintBrush: \"paint-brush\",\r\n    paint: \"paint\",\r\n    palette: \"palette\",\r\n    pantone: \"pantone\",\r\n    pencil: \"pencil\",\r\n    pencilRuler: \"pencil-ruler\",\r\n    penNib: \"pen-nib\",\r\n    sip: \"sip\",\r\n    table: \"table\",\r\n\r\n    /**\r\n     * Development\r\n     */\r\n    bug: \"bug\",\r\n    codeBox: \"code-box\",\r\n    codeSSlash: \"code-s-slash\",\r\n    cursor: \"cursor\",\r\n    gitBranch: \"git-branch\",\r\n    gitCommit: \"git-commit\",\r\n    gitMerge: \"git-merge\",\r\n    gitPullRequest: \"git-pull-request\",\r\n    gitRepositoryCommits: \"git-repository-commits\",\r\n    gitRepository: \"git-repository\",\r\n    gitRepositoryPrivate: \"git-repository-private\",\r\n    terminalBox: \"terminal-box\",\r\n    terminal: \"terminal\",\r\n    terminalWindow: \"terminal-window\",\r\n\r\n    /**\r\n     * Device\r\n     */\r\n    server: \"server\",\r\n    smartphone: \"smartphone\",\r\n    tablet: \"tablet\",\r\n    tv: \"tv\",\r\n    wifi: \"wifi\",\r\n    bluetooth: \"bluetooth\",\r\n    computer: \"computer\",\r\n    dashboard3: \"dashboard-3\",\r\n    database: \"database\",\r\n    device: \"device\",\r\n    hardDrive2: \"hard-drive-2\",\r\n    mac: \"mac\",\r\n    phone: \"phone\",\r\n    qrCode: \"qr-code\",\r\n    rss: \"rss\",\r\n    save3: \"save-3\",\r\n    save: \"save\",\r\n\r\n    /**\r\n     * Document\r\n     */\r\n\r\n    article: \"article\",\r\n    book2: \"book-2\",\r\n    booklet: \"booklet\",\r\n    clipboard: \"clipboard\",\r\n    draft: \"draft\",\r\n    fileAdd: \"file-add\",\r\n    fileDownload: \"file-download\",\r\n    file: \"file\",\r\n    filePdf: \"file-pdf\",\r\n    fileText: \"file-text\",\r\n    folder2: \"folder-2\",\r\n    newspaper: \"newspaper\",\r\n    survey: \"survey\",\r\n    todo: \"todo\",\r\n\r\n    /**\r\n     * Editor\r\n     */\r\n    codeView: \"code-view\",\r\n    fontSize: \"font-size\",\r\n    bold: \"fr--bold\",\r\n    highlight: \"fr--highlight\",\r\n    quote: \"fr--quote\",\r\n    h1: \"h-1\",\r\n    h2: \"h-2\",\r\n    h3: \"h-3\",\r\n    h4: \"h-4\",\r\n    h5: \"h-5\",\r\n    h6: \"h-6\",\r\n    hashtag: \"hashtag\",\r\n    italic: \"italic\",\r\n    link: \"link\",\r\n    linkUnlink: \"link-unlink\",\r\n    listOrdered: \"list-ordered\",\r\n    listUnordered: \"list-unordered\",\r\n    questionMark: \"question-mark\",\r\n    separator: \"separator\",\r\n    space: \"space\",\r\n    subscript: \"subscript\",\r\n    superscript: \"superscript\",\r\n    table2: \"table-2\",\r\n    translate2: \"translate-2\",\r\n\r\n    /**\r\n     * Finance\r\n     */\r\n    bankCard: \"bank-card\",\r\n    coin: \"coin\",\r\n    gift: \"gift\",\r\n    moneyEuroBox: \"money-euro-box\",\r\n    moneyEuroCircle: \"money-euro-circle\",\r\n    securePayment: \"secure-payment\",\r\n    shoppingBag: \"shopping-bag\",\r\n    shoppingCart2: \"shopping-cart-2\",\r\n    trophy: \"trophy\",\r\n\r\n    /**\r\n     * Health\r\n     */\r\n    capsule: \"capsule\",\r\n    dislike: \"dislike\",\r\n    dossier: \"dossier\",\r\n    firstAidKit: \"first-aid-kit\",\r\n    handSanitizer: \"hand-sanitizer\",\r\n    healthBook: \"health-book\",\r\n    heart: \"heart\",\r\n    heartPulse: \"heart-pulse\",\r\n    lungs: \"lungs\",\r\n    medicineBottle: \"medicine-bottle\",\r\n    mentalHealth: \"mental-health\",\r\n    microscope: \"microscope\",\r\n    psychotherapy: \"psychotherapy\",\r\n    pulse: \"pulse\",\r\n    stethoscope: \"stethoscope\",\r\n    surgicalMask: \"surgical-mask\",\r\n    syringe: \"syringe\",\r\n    testTube: \"test-tube\",\r\n    thermometer: \"thermometer\",\r\n    virus: \"virus\",\r\n\r\n    /**\r\n     * Logo\r\n     */\r\n    chrome: \"chrome\",\r\n    edge: \"edge\",\r\n    facebookCircle: \"facebook-circle\",\r\n    firefox: \"firefox\",\r\n    Dailymotion: \"fr--dailymotion\",\r\n    Tiktok: \"fr--tiktok\",\r\n    github: \"github\",\r\n    google: \"google\",\r\n    ie: \"ie\",\r\n    instagram: \"instagram\",\r\n    linkedinBox: \"linkedin-box\",\r\n    mastodon: \"mastodon\",\r\n    npmjs: \"npmjs\",\r\n    remixicon: \"remixicon\",\r\n    safari: \"safari\",\r\n    slack: \"slack\",\r\n    snapchat: \"snapchat\",\r\n    telegram: \"telegram\",\r\n    twitch: \"twitch\",\r\n    twitter: \"twitter\",\r\n    vimeo: \"vimeo\",\r\n    vuejs: \"vuejs\",\r\n    youtube: \"youtube\",\r\n\r\n    /**\r\n     * Map\r\n     */\r\n    anchor: \"anchor\",\r\n    bike: \"bike\",\r\n    bus: \"bus\",\r\n    caravan: \"caravan\",\r\n    car: \"car\",\r\n    chargingPile2: \"charging-pile-2\",\r\n    compass3: \"compass-3\",\r\n    cup: \"cup\",\r\n    earth: \"earth\",\r\n    france: \"france\",\r\n    gasStation: \"gas-station\",\r\n    goblet: \"goblet\",\r\n    mapPin2: \"map-pin-2\",\r\n    mapPinUser: \"map-pin-user\",\r\n    motorbike: \"motorbike\",\r\n    passport: \"passport\",\r\n    restaurant: \"restaurant\",\r\n    roadMap: \"road-map\",\r\n    sailboat: \"sailboat\",\r\n    ship2: \"ship-2\",\r\n    signalTower: \"signal-tower\",\r\n    suitcase2: \"suitcase-2\",\r\n    taxi: \"taxi\",\r\n    train: \"train\",\r\n\r\n    /**\r\n     * media\r\n     */\r\n    alignLeft: \"align-left\",\r\n    camera: \"camera\",\r\n    clapperboard: \"clapperboard\",\r\n    equalizer: \"equalizer\",\r\n    film: \"film\",\r\n    fullscreen: \"fullscreen\",\r\n    gallery: \"gallery\",\r\n    headphone: \"headphone\",\r\n    imageAdd: \"image-add\",\r\n    imageEdit: \"image-edit\",\r\n    image: \"image\",\r\n    live: \"live\",\r\n    mic: \"mic\",\r\n    music2: \"music-2\",\r\n    notification3: \"notification-3\",\r\n    pauseCircle: \"pause-circle\",\r\n    playCircle: \"play-circle\",\r\n    stopCircle: \"stop-circle\",\r\n    volumeDown: \"volume-down\",\r\n    volumeMute: \"volume-mute\",\r\n    volumeUp: \"volume-up\",\r\n\r\n    /**\r\n     * Other\r\n     */\r\n    leaf: \"leaf\",\r\n    lightbulb: \"lightbulb\",\r\n    plant: \"plant\",\r\n    recycle: \"recycle\",\r\n    scales3: \"scales-3\",\r\n    seedling: \"seedling\",\r\n    umbrella: \"umbrella\",\r\n\r\n    /**\r\n     * System\r\n     */\r\n    addCircle: \"add-circle\",\r\n    add: \"add\",\r\n    alarmWarning: \"alarm-warning\",\r\n    alert: \"alert\",\r\n    arrowDown: \"arrow-down\",\r\n    arrowDownS: \"arrow-down-s\",\r\n    arrowGoBack: \"arrow-go-back\",\r\n    arrowGoForward: \"arrow-go-forward\",\r\n    arrowLeft: \"arrow-left\",\r\n    arrowLeftS: \"arrow-left-s\",\r\n    arrowRight: \"arrow-right\",\r\n    arrowRightS: \"arrow-right-s\",\r\n    arrowRightUp: \"arrow-right-up\",\r\n    arrowUp: \"arrow-up\",\r\n    arrowUpS: \"arrow-up-s\",\r\n    checkboxCircle: \"checkbox-circle\",\r\n    checkbox: \"checkbox\",\r\n    check: \"check\",\r\n    closeCircle: \"close-circle\",\r\n    close: \"close\",\r\n    deleteBin: \"delete-bin\",\r\n    download: \"download\",\r\n    errorWarning: \"error-warning\",\r\n    externalLink: \"external-link\",\r\n    eye: \"eye\",\r\n    eyeOff: \"eye-off\",\r\n    filter: \"filter\",\r\n    arrowLeftSfirst: \"fr--arrow-left-s-first\",\r\n    frArrowLeftS: \"fr--arrow-left-s\",\r\n    arrowRightSLast: \"fr--arrow-right-s-last\",\r\n    frArrowRightS: \"fr--arrow-right-s\",\r\n    capslock: \"fr--capslock\",\r\n    error: \"fr--error\",\r\n    info: \"fr--info\",\r\n    success: \"fr--success\",\r\n    theme: \"fr--theme\",\r\n    warning: \"fr--warning\",\r\n    information: \"information\",\r\n    lock: \"lock\",\r\n    lockUnlock: \"lock-unlock\",\r\n    logoutBoxR: \"logout-box-r\",\r\n    menu2: \"menu-2\",\r\n    more: \"more\",\r\n    notificationBadge: \"notification-badge\",\r\n    question: \"question\",\r\n    refresh: \"refresh\",\r\n    search: \"search\",\r\n    settings5: \"settings-5\",\r\n    shield: \"shield\",\r\n    star: \"star\",\r\n    starS: \"star-s\",\r\n    subtract: \"subtract\",\r\n    thumbDown: \"thumb-down\",\r\n    thumbUp: \"thumb-up\",\r\n    time: \"time\",\r\n    timer: \"timer\",\r\n    upload2: \"upload-2\",\r\n    upload: \"upload\",\r\n    zoomIn: \"zoom-in\",\r\n    zoomOut: \"zoom-out\",\r\n\r\n    /**\r\n     * User\r\n     */\r\n    accountCircle: \"account-circle\",\r\n    accountPinCircle: \"account-pin-circle\",\r\n    admin: \"admin\",\r\n    group: \"group\",\r\n    parent: \"parent\",\r\n    team: \"team\",\r\n    userAdd: \"user-add\",\r\n    user: \"user\",\r\n    userHeart: \"user-heart\",\r\n    userSearch: \"user-search\",\r\n    userSetting: \"user-setting\",\r\n    userStar: \"user-star\",\r\n\r\n    /**\r\n     * Weather\r\n     */\r\n    cloudy2: \"cloudy-2\",\r\n    flashlight: \"flashlight\",\r\n    moon: \"moon\",\r\n    sun: \"sun\"\r\n} as const"
+                },
+                {
+                    "name": "onlyWithFillStyle",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[IconsData.coin, IconsData.theme]"
+                },
+                {
+                    "name": "onlyWithLineStyle",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\r\n    IconsData.pulse,\r\n    IconsData.check,\r\n    IconsData.add,\r\n    IconsData.close,\r\n    IconsData.subtract,\r\n    IconsData.fullscreen,\r\n    IconsData.arrowLeftSfirst,\r\n    IconsData.arrowRightSLast,\r\n    IconsData.frArrowLeftS,\r\n    IconsData.frArrowRightS\r\n]"
+                },
+                {
+                    "name": "withLineDoubleStyle",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[IconsData.frArrowLeftS, IconsData.frArrowRightS]"
+                },
+                {
+                    "name": "withoutstyle",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\r\n    IconsData.alignLeft,\r\n    IconsData.fullscreen,\r\n    IconsData.codeView,\r\n    IconsData.fontSize,\r\n    IconsData.bold,\r\n    IconsData.highlight,\r\n    IconsData.h1,\r\n    IconsData.h2,\r\n    IconsData.h3,\r\n    IconsData.h4,\r\n    IconsData.h5,\r\n    IconsData.h6,\r\n    IconsData.hashtag,\r\n    IconsData.italic,\r\n    IconsData.link,\r\n    IconsData.linkUnlink,\r\n    IconsData.listOrdered,\r\n    IconsData.listUnordered,\r\n    IconsData.questionMark,\r\n    IconsData.separator,\r\n    IconsData.space,\r\n    IconsData.subscript,\r\n    IconsData.superscript,\r\n    IconsData.table2,\r\n    IconsData.translate2\r\n]"
+                }
+            ],
+            "projects/angular-dsfr/src/lib/accordion/accordion.component.stories.ts": [
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/angular-dsfr/src/lib/accordion/accordion.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AccordionComponent>",
+                    "defaultValue": "{\r\n    title: \"Accordion\",\r\n    component: AccordionComponent,\r\n}"
+                },
+                {
+                    "name": "Simple",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/angular-dsfr/src/lib/accordion/accordion.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "StoryObj<AccordionComponent>",
+                    "defaultValue": "{\r\n    render: args => ({\r\n        template: `\r\n        <dsfr-accordion title=\"Mes informations\">\r\n            Contenu accordion 1\r\n        </dsfr-accordion>\r\n        <dsfr-accordion title=\"Encore plus d'information\">\r\n            Contenu accordion 2\r\n        </dsfr-accordion>\r\n        `,\r\n        props: args,\r\n    }\r\n    )\r\n}"
+                }
+            ],
             "projects/angular-dsfr/src/lib/button/button.component.stories.ts": [
                 {
                     "name": "meta",
@@ -318,33 +1024,110 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\n    title: \"Button\",\n    component: ButtonComponent\n}"
+                    "defaultValue": "{\r\n    title: \"Button\",\r\n    component: ButtonComponent,\r\n    argTypes: { icon: { control: 'select', options: Object.values(IconsData) } },\r\n    args: {\r\n        icon: IconsData.addCircle\r\n    }\r\n}"
                 },
                 {
-                    "name": "Primary",
+                    "name": "Variant",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "projects/angular-dsfr/src/lib/button/button.component.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "StoryObj<ButtonComponent>",
-                    "defaultValue": "{\n    render: args => ({\n        template: `<button dsfr-button [type]=\"type\" [disabled]=\"disabled\" [size]=\"size\" [icon]=icon [iconDirection]=\"iconDirection\">Label bouton</button>`,\n        props: args\n    })\n}"
-                },
+                    "defaultValue": "{\r\n    render: args => ({\r\n        template: `\r\n        <div style=\"display:grid; grid-gap: 10px; grid-column: 1;\">\r\n          <button dsfrButton [type]=\"type\" [size]=\"size\">Label bouton</button>\r\n          <button dsfrButton [type]=\"type\" [size]=\"size\" [icon]='icon' [iconStyle]=\"iconStyle\" [iconAlign]=\"iconAlign\">Label bouton</button>\r\n          <button dsfrButton [type]=\"type\" [size]=\"size\" [icon]='icon' [iconStyle]=\"iconStyle\"></button>\r\n        <div>\r\n        `,\r\n        props: args,\r\n    }\r\n    )\r\n}"
+                }
+            ],
+            "projects/angular-dsfr/src/lib/accordion/accordion.component.ts": [
                 {
-                    "name": "WithIcone",
+                    "name": "nextUniqueId",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/angular-dsfr/src/lib/button/button.component.stories.ts",
+                    "file": "projects/angular-dsfr/src/lib/accordion/accordion.component.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "StoryObj<ButtonComponent>",
-                    "defaultValue": "{\n    render: args => ({\n        template: `<button dsfr-button icon='fr-icon-checkbox-circle-line' [iconDirection]=\"iconDirection\">Label bouton {{iconDirection}}</button>`,\n        props: args\n    })\n}"
+                    "type": "number",
+                    "defaultValue": "0"
                 }
             ]
         },
-        "groupedFunctions": {},
-        "groupedEnumerations": {},
+        "groupedFunctions": {
+            "projects/angular-dsfr/src/lib/utils/coercion.ts": [
+                {
+                    "name": "coerceBooleanProperty",
+                    "file": "projects/angular-dsfr/src/lib/utils/coercion.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "value",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "returnType": "boolean",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "groupedEnumerations": {
+            "projects/angular-dsfr/src/lib/theming/theming.service.ts": [
+                {
+                    "name": "ThemeOption",
+                    "childs": [
+                        {
+                            "name": "LIGHT",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "light"
+                        },
+                        {
+                            "name": "DARK",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "dark"
+                        },
+                        {
+                            "name": "SYSTEM",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "system"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "projects/angular-dsfr/src/lib/theming/theming.service.ts"
+                }
+            ]
+        },
         "groupedTypeAliases": {
+            "projects/angular-dsfr/src/lib/button-group/button-group.component.ts": [
+                {
+                    "name": "BreakPoint",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"sm\" | \"md\" | \"lg\"",
+                    "file": "projects/angular-dsfr/src/lib/button-group/button-group.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                }
+            ],
             "projects/angular-dsfr/src/lib/button/button.component.ts": [
                 {
                     "name": "ButtonSize",
@@ -368,6 +1151,41 @@
                     "description": "",
                     "kind": 186
                 }
+            ],
+            "projects/angular-dsfr/src/lib/icons/icons.ts": [
+                {
+                    "name": "Icons",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "",
+                    "file": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 193
+                },
+                {
+                    "name": "IconsKey",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "",
+                    "file": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 192
+                },
+                {
+                    "name": "IconStyle",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"fill\" | \"line\"",
+                    "file": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                }
             ]
         }
     },
@@ -376,6 +1194,63 @@
         "count": 0,
         "status": "low",
         "files": [
+            {
+                "filePath": "projects/angular-dsfr/src/lib/accordion/accordion.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/angular-dsfr/src/lib/accordion/accordion.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Simple",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/angular-dsfr/src/lib/accordion/accordion.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AccordionComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/angular-dsfr/src/lib/accordion/accordion.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "nextUniqueId",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/angular-dsfr/src/lib/button-group/button-group.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonGroupComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/angular-dsfr/src/lib/button-group/button-group.component.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "ButtonGroupItemDirective",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
             {
                 "filePath": "projects/angular-dsfr/src/lib/button/button.component.stories.ts",
                 "type": "variable",
@@ -391,17 +1266,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Primary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/angular-dsfr/src/lib/button/button.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "WithIcone",
+                "name": "Variant",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -412,7 +1277,105 @@
                 "linktype": "component",
                 "name": "ButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/16",
+                "coverageCount": "0/19",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "Icon",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "IconsData",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "onlyWithFillStyle",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "onlyWithLineStyle",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "withLineDoubleStyle",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/angular-dsfr/src/lib/icons/icons.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "withoutstyle",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/angular-dsfr/src/lib/theming/theming.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "ThemeService",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/angular-dsfr/src/lib/theming/theming.service.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DATA_FR_SCHEME",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/angular-dsfr/src/lib/theming/theming.service.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SCHEME_DB",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/angular-dsfr/src/lib/utils/coercion.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "coerceBooleanProperty",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             }
         ]
