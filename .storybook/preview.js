@@ -3,6 +3,7 @@ import { DocsContainer, DocsPage } from "@storybook/blocks";
 import docJson from "../documentation.json";
 import { darkTheme, lightTheme } from "./customTheme";
 setCompodocJson(docJson);
+import "@gouvfr/dsfr/dist/dsfr.module.min.js"
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
